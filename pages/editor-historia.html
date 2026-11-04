@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Escreve, personaliza e exporta a tua história no StoryVerse." data-i18n-content="desc.editorStory">
+  <meta name="theme-color" content="#111936">
+  <title data-i18n="page.editorStory">Editor de histórias — StoryVerse</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/logo/icone.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/editor-visual.css">
+  <link rel="stylesheet" href="../css/editor-poema.css">
+  <link rel="stylesheet" href="../css/stories.css">
+</head>
+<body>
+  <a class="skip-link" href="#story-editor-main" data-i18n="skip">Saltar para o conteúdo</a>
+  <script src="../js/modules/layout.js" data-part="header"></script>
+
+  <main id="story-editor-main" class="container visual-editor-page story-editor-page">
+    <div class="editor-intro">
+      <p class="editor-eyebrow"><span class="editor-dot"></span><span data-i18n="st.eyebrow">ESTÚDIO DE CRIAÇÃO · HISTÓRIAS</span></p>
+      <h1 data-i18n="st.title">Editor de histórias</h1>
+      <p data-i18n="st.subtitle">Escreve por capítulos, escolhe uma capa e exporta a tua história em PDF.</p>
+    </div>
+
+    <div class="editor-layout">
+      <section class="editor-controls" aria-labelledby="st-controls-title">
+        <div class="panel-heading"><div><span class="panel-kicker" data-i18n="editor.step">PERSONALIZAÇÃO</span><h2 id="st-controls-title" data-i18n="st.controls">A tua história</h2></div></div>
+
+        <fieldset class="control-group poem-group">
+          <legend data-i18n="st.data">Dados da história</legend>
+          <label class="field-label" for="st-title" data-i18n="st.storyTitle">Título</label>
+          <input type="text" id="st-title" class="poem-input" maxlength="120" placeholder="Título da história" data-i18n-placeholder="st.titlePh">
+          <label class="field-label" for="st-subtitle" data-i18n="st.subtitleLabel">Subtítulo</label>
+          <input type="text" id="st-subtitle" class="poem-input" maxlength="140">
+          <div class="st-two">
+            <div><label class="field-label" for="st-author" data-i18n="st.author">Autor</label><input type="text" id="st-author" class="poem-input" maxlength="80" placeholder="O teu nome" data-i18n-placeholder="poem.authorPh"></div>
+            <div><label class="field-label" for="st-year" data-i18n="st.year">Ano</label><input type="text" id="st-year" class="poem-input" maxlength="4" inputmode="numeric" placeholder="2026"></div>
+          </div>
+          <label class="field-label" for="st-synopsis" data-i18n="st.synopsis">Sinopse (opcional)</label>
+          <textarea id="st-synopsis" class="poem-input" rows="3" maxlength="600"></textarea>
+          <label class="field-label" for="st-characters" data-i18n="st.characters">Personagens (opcional)</label>
+          <input type="text" id="st-characters" class="poem-input" maxlength="240" placeholder="Mara, Tomé, Dona Luzia" data-i18n-placeholder="st.charactersPh">
+          <p class="control-help" data-i18n="st.charactersHelp">Separa os nomes com vírgulas.</p>
+        </fieldset>
+
+        <fieldset class="control-group poem-group">
+          <legend data-i18n="st.cover">Capa (opcional)</legend>
+          <div class="cover-grid" id="st-covers">
+            <button type="button" class="cover-opt cover-none is-selected" data-cover="" aria-pressed="true"><span data-i18n="st.noCover">Sem capa</span></button>
+            <button type="button" class="cover-opt" data-cover="cover-01" aria-pressed="false" aria-label="Capa 1"><img src="../assets/covers/cover-01.svg" alt="" loading="lazy"></button><button type="button" class="cover-opt" data-cover="cover-02" aria-pressed="false" aria-label="Capa 2"><img src="../assets/covers/cover-02.svg" alt="" loading="lazy"></button><button type="button" class="cover-opt" data-cover="cover-03" aria-pressed="false" aria-label="Capa 3"><img src="../assets/covers/cover-03.svg" alt="" loading="lazy"></button><button type="button" class="cover-opt" data-cover="cover-04" aria-pressed="false" aria-label="Capa 4"><img src="../assets/covers/cover-04.svg" alt="" loading="lazy"></button><button type="button" class="cover-opt" data-cover="cover-05" aria-pressed="false" aria-label="Capa 5"><img src="../assets/covers/cover-05.svg" alt="" loading="lazy"></button><button type="button" class="cover-opt" data-cover="cover-06" aria-pressed="false" aria-label="Capa 6"><img src="../assets/covers/cover-06.svg" alt="" loading="lazy"></button><button type="button" class="cover-opt" data-cover="cover-07" aria-pressed="false" aria-label="Capa 7"><img src="../assets/covers/cover-07.svg" alt="" loading="lazy"></button><button type="button" class="cover-opt" data-cover="cover-08" aria-pressed="false" aria-label="Capa 8"><img src="../assets/covers/cover-08.svg" alt="" loading="lazy"></button><button type="button" class="cover-opt" data-cover="cover-09" aria-pressed="false" aria-label="Capa 9"><img src="../assets/covers/cover-09.svg" alt="" loading="lazy"></button><button type="button" class="cover-opt" data-cover="cover-10" aria-pressed="false" aria-label="Capa 10"><img src="../assets/covers/cover-10.svg" alt="" loading="lazy"></button>
+          </div>
+          <label class="poem-btn st-upload"><i data-lucide="image-plus"></i><span data-i18n="st.coverUpload">Escolher da galeria</span><input type="file" id="st-cover-file" accept="image/*" hidden></label>
+          <p class="control-help" data-i18n="st.coverUploadHelp">Usa uma fotografia do teu dispositivo como capa. Fica só nesta sessão.</p>
+        </fieldset>
+
+        <fieldset class="control-group poem-group">
+          <legend data-i18n="st.chapters">Capítulos</legend>
+          <div class="st-toolbar" id="st-toolbar" role="toolbar" aria-label="Formatação do capítulo ativo" data-i18n-aria-label="st.format">
+            <button type="button" class="poem-fmt-btn" data-cmd="bold" title="Negrito" data-i18n-title="st.bold"><i data-lucide="bold"></i></button>
+            <button type="button" class="poem-fmt-btn" data-cmd="italic" title="Itálico" data-i18n-title="st.italic"><i data-lucide="italic"></i></button>
+            <button type="button" class="poem-fmt-btn" data-cmd="underline" title="Sublinhado" data-i18n-title="st.underline"><i data-lucide="underline"></i></button>
+            <span class="st-sep"></span>
+            <button type="button" class="poem-fmt-btn" data-cmd="insertUnorderedList" title="Lista com marcadores" data-i18n-title="st.ul"><i data-lucide="list"></i></button>
+            <button type="button" class="poem-fmt-btn" data-cmd="insertOrderedList" title="Lista numerada" data-i18n-title="st.ol"><i data-lucide="list-ordered"></i></button>
+            <span class="st-sep"></span>
+            <button type="button" class="poem-fmt-btn" data-cmd="justifyLeft" title="Alinhar à esquerda" data-i18n-title="st.alignLeft"><i data-lucide="align-left"></i></button>
+            <button type="button" class="poem-fmt-btn" data-cmd="justifyCenter" title="Centrar" data-i18n-title="st.alignCenter"><i data-lucide="align-center"></i></button>
+            <button type="button" class="poem-fmt-btn" data-cmd="justifyRight" title="Alinhar à direita" data-i18n-title="st.alignRight"><i data-lucide="align-right"></i></button>
+          </div>
+          <div id="st-chapters" class="st-chapters"></div>
+          <button type="button" id="st-add-chapter" class="poem-btn poem-btn-main"><i data-lucide="plus"></i><span data-i18n="st.addChapter">Adicionar capítulo</span></button>
+        </fieldset>
+
+        <fieldset class="control-group poem-group">
+          <legend data-i18n="st.present">Apresentação</legend>
+          <span class="poem-sublabel" data-i18n="reader.font">Tipo de letra</span>
+          <div class="poem-ratio" role="group"><button type="button" class="poem-ratio-btn is-selected" data-sfont="serif" aria-pressed="true" data-i18n="reader.serif">Com serifa</button><button type="button" class="poem-ratio-btn" data-sfont="sans" aria-pressed="false" data-i18n="reader.sans">Sem serifa</button></div>
+          <div class="poem-range"><label for="st-size" data-i18n="reader.size">Tamanho do texto</label><input type="range" id="st-size" min="12" max="22" step="1" value="15"><output id="st-size-out">15</output></div>
+          <div class="poem-range"><label for="st-lh" data-i18n="reader.lh">Espaço entre linhas</label><input type="range" id="st-lh" min="1.3" max="2.2" step="0.1" value="1.7"><output id="st-lh-out">1.7</output></div>
+          <span class="poem-sublabel" data-i18n="reader.theme">Tema</span>
+          <div class="seg" role="group"><button type="button" class="seg-btn is-selected" data-stheme="light" aria-pressed="true" data-i18n="reader.light">Claro</button><button type="button" class="seg-btn" data-stheme="dark" aria-pressed="false" data-i18n="reader.dark">Escuro</button><button type="button" class="seg-btn" data-stheme="sepia" aria-pressed="false" data-i18n="reader.sepia">Sépia</button></div>
+        </fieldset>
+
+        <p class="editor-warning"><i data-lucide="info"></i><span data-i18n="editor.warning">O teu trabalho não é guardado automaticamente. Exporta o conteúdo para não o perderes.</span></p>
+        <div class="export-actions poem-export-actions">
+          <button type="button" class="btn-export btn-export-primary" id="st-export-pdf"><i data-lucide="file-text"></i><span data-i18n="poem.exportPdf">Exportar PDF</span></button>
+          <button type="button" class="btn-export btn-export-secondary" id="st-share" hidden><i data-lucide="share-2"></i><span data-i18n="poem.share">Partilhar</span></button>
+        </div>
+        <p class="export-status" id="st-status" role="status" aria-live="polite"></p>
+        <nav id="export-next" class="export-next" hidden aria-label="Próximos passos" data-i18n-aria-label="next.title">
+          <a href="historias.html"><i data-lucide="book-open"></i><span data-i18n="next.story">Escolher outra história</span></a>
+          <a href="criar.html"><i data-lucide="layout-grid"></i><span data-i18n="next.categories">Voltar às categorias</span></a>
+          <a href="../index.html"><i data-lucide="house"></i><span data-i18n="next.home">Ir para o início</span></a>
+        </nav>
+      </section>
+
+      <section class="preview-column" aria-labelledby="st-preview-title">
+        <div class="preview-heading"><div><span class="panel-kicker" data-i18n="editor.preview.kicker">RESULTADO</span><h2 id="st-preview-title" data-i18n="editor.preview">Pré-visualização</h2></div><span class="format-pill">PDF · A4</span></div>
+        <div class="st-preview-wrap"><article id="st-preview" class="reader theme-light font-serif st-preview"></article></div>
+      </section>
+    </div>
+  </main>
+
+  <script src="../js/modules/layout.js" data-part="footer"></script>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+  <script src="../js/data/config.js" defer></script>
+  <script src="../js/data/languages.js" defer></script>
+  <script src="../js/data/contents.js" defer></script>
+  <script src="../js/data/embedded-svgs.js" defer></script>
+  <script src="../js/modules/language.js" defer></script>
+  <script src="../js/modules/navigation.js" defer></script>
+  <script src="../js/modules/feedback.js" defer></script>
+  <script src="../js/modules/search.js" defer></script>
+  <script src="../js/main.js" defer></script>
+  <script src="../js/modules/story-core.js" defer></script>
+  <script src="../js/modules/editor-textual.js" defer></script>
+</body>
+</html>

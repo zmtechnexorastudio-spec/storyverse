@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explora os memes do StoryVerse, escolhe um e personaliza a tua própria versão." data-i18n-content="memes.metaDescription">
+  <meta name="theme-color" content="#111936">
+  <title data-i18n="page.memes">Memes — StoryVerse</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/logo/icone.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/memes-page.css">
+</head>
+<body>
+  <a class="skip-link" href="#memes-content" data-i18n="skip">Saltar para o conteúdo</a>
+  <script src="../js/modules/layout.js" data-part="header"></script>
+
+  <main id="memes-content" class="memes-page">
+    <section class="memes-hero">
+      <div class="container memes-hero-inner">
+        <div class="memes-hero-copy">
+          <div class="memes-hero-icon"><i data-lucide="smile"></i></div>
+          <div>
+            <p class="memes-eyebrow" data-i18n="memes.eyebrow">STORYVERSE · HUMOR</p>
+            <h1 data-i18n="memes.title">Memes</h1>
+            <p data-i18n="memes.subtitle">Risos que conectam pessoas. Encontra um meme, personaliza-o e partilha a tua versão.</p>
+          </div>
+        </div>
+        <blockquote class="memes-quote"><span data-i18n="memes.quote">“Um meme bem escolhido pode dizer mais do que mil palavras.”</span><i></i></blockquote>
+      </div>
+    </section>
+
+    <section class="container memes-library" aria-labelledby="memes-list-title">
+      <div class="memes-toolbar">
+        <div class="memes-toolbar-heading">
+          <span class="memes-section-mark"></span>
+          <div><h2 id="memes-list-title" data-i18n="memes.allTitle">Explora os memes</h2><p data-i18n="memes.allSubtitle">Escolhe um conteúdo para personalizares.</p></div>
+        </div>
+        <label class="memes-search">
+          <i data-lucide="search"></i>
+          <span class="sr-only" data-i18n="memes.searchLabel">Pesquisar memes</span>
+          <input id="memes-search" type="search" placeholder="Pesquisar memes..." data-i18n-placeholder="memes.searchPlaceholder">
+        </label>
+        <a class="memes-create-btn" href="modelos.html?category=memes"><i data-lucide="plus"></i><span data-i18n="memes.create">Criar meme</span></a>
+      </div>
+      <div id="memes-grid" class="memes-grid" aria-live="polite"></div>
+      <p id="memes-empty" class="memes-empty" hidden data-i18n="memes.empty">Não encontrámos memes com essa pesquisa.</p>
+    </section>
+  </main>
+
+  <script src="../js/modules/layout.js" data-part="footer"></script>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+  <script src="../js/data/config.js" defer></script>
+  <script src="../js/data/languages.js" defer></script>
+  <script src="../js/data/contents.js" defer></script>
+  <script src="../js/modules/language.js" defer></script>
+  <script src="../js/modules/navigation.js" defer></script>
+  <script src="../js/modules/feedback.js" defer></script>
+  <script src="../js/modules/search.js" defer></script>
+  <script src="../js/main.js" defer></script>
+  <script src="../js/modules/memes-page.js" defer></script>
+</body>
+</html>

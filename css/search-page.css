@@ -1,0 +1,16 @@
+/* StoryVerse · página de pesquisa global */
+.sp-form { display: flex; gap: 12px; margin-bottom: 18px; }
+.sp-input { flex: 1; }
+.sp-count { margin: 0 0 14px; font-size: 1rem; font-weight: 700; }
+.sp-results { display: flex; flex-direction: column; gap: 12px; }
+.sp-item { display: flex; gap: 14px; align-items: flex-start; padding: 14px 16px; border: 1px solid var(--border); border-radius: 14px; background: var(--surface); color: var(--text); text-decoration: none; }
+.sp-item:hover { border-color: var(--link); box-shadow: 0 6px 18px rgba(17, 25, 54, .08); }
+.sp-thumb { flex: none; width: 54px; height: 72px; border-radius: 8px; overflow: hidden; background: var(--surface-2); }
+.sp-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.sp-body { min-width: 0; flex: 1; }
+.sp-cat { display: inline-block; margin-bottom: 4px; padding: 2px 9px; border-radius: 999px; background: color-mix(in srgb, var(--link) 14%, transparent); color: var(--link); font-size: .68rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+.sp-title { margin: 0 0 4px; font-size: 1.02rem; overflow-wrap: anywhere; }
+.sp-snippet { margin: 0; font-size: .86rem; line-height: 1.55; color: var(--muted, #5b6286); overflow-wrap: anywhere; }
+.sp-item mark { background: #ffe58a; color: #1c2038; border-radius: 3px; padding: 0 2px; }
+.sp-go { align-self: center; flex: none; font-size: .8rem; font-weight: 600; color: var(--link); }
+@media (max-width: 560px) { .sp-form { flex-direction: column; } .sp-go { display: none; } }

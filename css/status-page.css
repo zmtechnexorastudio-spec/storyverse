@@ -1,0 +1,137 @@
+/* StoryVerse — página de memes (sem filtros laterais/categorias na V1). */
+.status-page { padding-bottom: 28px; }
+.status-hero {
+  color: #fff;
+  background:
+    radial-gradient(circle at 82% 22%, rgba(91,111,255,.28), transparent 28%),
+    linear-gradient(112deg, #08132f 0%, #101f4b 55%, #111936 100%);
+  border-bottom: 1px solid rgba(217,166,46,.28);
+}
+.status-hero-inner { min-height: 205px; display:flex; align-items:center; justify-content:space-between; gap:36px; padding-block:30px; }
+.status-hero-copy { display:flex; align-items:center; gap:18px; min-width:0; }
+.status-hero-icon { width:68px; height:68px; display:grid; place-items:center; flex:none; border-radius:20px; color:#fff; background:linear-gradient(145deg,#7795ff,#4c42d5); box-shadow:0 10px 28px rgba(57,79,220,.34); }
+.status-hero-icon svg { width:32px; height:32px; stroke-width:1.8; }
+.status-eyebrow { margin-bottom:5px; color:#d9a62e; font-size:.66rem; font-weight:700; letter-spacing:.14em; }
+.status-hero h1 { color:#fff; font-size:clamp(1.8rem,3vw,2.45rem); line-height:1.15; }
+.status-hero-copy > div:last-child > p:last-child { margin-top:8px; max-width:540px; color:#d8def2; font-size:.83rem; }
+.status-quote { max-width:260px; flex:none; color:#fff; font-family:var(--font-read); font-size:.9rem; font-style:italic; line-height:1.65; text-align:right; transform:rotate(-3deg); }
+.status-quote i { display:block; width:72px; height:3px; margin:12px 0 0 auto; border-radius:4px; background:#d9a62e; transform:rotate(-7deg); }
+.status-library { position:relative; margin-top:22px; padding:20px; border:1px solid var(--border); border-radius:14px; background:var(--surface); box-shadow:var(--shadow); }
+.status-toolbar { display:grid; grid-template-columns:minmax(180px,1fr) minmax(210px,310px) auto; align-items:center; gap:18px; margin-bottom:20px; }
+.status-toolbar-heading { display:flex; align-items:center; gap:12px; }
+.status-section-mark { width:4px; height:36px; border-radius:4px; background:linear-gradient(#6c3fc5,#4c7dff); }
+.status-toolbar-heading h2 { font-size:1.05rem; font-weight:700; }
+.status-toolbar-heading p { margin-top:2px; color:var(--muted); font-size:.7rem; }
+.status-search { position:relative; display:flex; align-items:center; }
+.status-search svg { position:absolute; left:12px; width:16px; height:16px; color:var(--muted); }
+.status-search input { width:100%; height:40px; padding:0 12px 0 38px; border:1px solid var(--border); border-radius:9px; outline:none; background:var(--input-bg); color:var(--text); font-size:.75rem; }
+.status-search input:focus { border-color:var(--link); box-shadow:0 0 0 3px rgba(108,63,197,.1); }
+.status-create-btn { display:inline-flex; align-items:center; justify-content:center; gap:7px; min-height:40px; padding:0 14px; border-radius:9px; background:linear-gradient(120deg,#5548e8,#3027c7); color:#fff; font-size:.75rem; font-weight:600; white-space:nowrap; box-shadow:0 5px 14px rgba(54,48,202,.2); }
+.status-create-btn:hover { filter:brightness(1.08); transform:translateY(-1px); }
+.status-create-btn svg { width:16px; height:16px; }
+.status-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:17px; }
+.meme-card { min-width:0; overflow:hidden; border:1px solid var(--border); border-radius:11px; background:var(--surface); box-shadow:0 3px 12px rgba(17,25,54,.06); transition:transform .16s,border-color .16s,box-shadow .16s; }
+.meme-card:hover { transform:translateY(-3px); border-color:var(--link); box-shadow:var(--shadow); }
+.meme-card-preview { position:relative; display:flex; min-height:174px; align-items:center; justify-content:center; overflow:hidden; padding:24px 20px; isolation:isolate; background-color:#1b2b5a; background-position:center; background-size:cover; color:#fff; text-align:center; }
+.meme-card-preview::before { position:absolute; content:""; inset:0; z-index:-1; background:linear-gradient(135deg,rgba(5,10,30,.18),rgba(5,10,30,.58)); }
+.meme-card-preview p { max-width:440px; color:#fff; font-family:var(--font-ui); font-size:clamp(.9rem,1.3vw,1.1rem); font-weight:800; line-height:1.35; text-shadow:0 2px 8px rgba(0,0,0,.72); white-space:pre-line; display:-webkit-box; -webkit-line-clamp:4; -webkit-box-orient:vertical; overflow:hidden; }
+.meme-card-preview .meme-preview-brand { position:absolute; top:11px; left:13px; color:rgba(255,255,255,.82); font-size:.53rem; font-weight:700; letter-spacing:.12em; }
+.meme-card-preview .meme-preview-id { position:absolute; right:12px; bottom:10px; color:rgba(255,255,255,.8); font-size:.52rem; letter-spacing:.1em; }
+.meme-card-body { padding:12px 13px 13px; }
+.meme-card-body h3 { overflow:hidden; color:var(--text); font-size:.82rem; font-weight:700; line-height:1.35; text-overflow:ellipsis; white-space:nowrap; }
+.meme-card-body p { display:-webkit-box; min-height:2.7em; margin-top:5px; overflow:hidden; color:var(--muted); font-size:.68rem; line-height:1.45; -webkit-line-clamp:2; -webkit-box-orient:vertical; }
+.meme-card-actions { display:flex; align-items:center; justify-content:space-between; gap:8px; margin-top:12px; }
+.meme-card-actions button,.meme-card-actions a { display:inline-flex; align-items:center; justify-content:center; gap:6px; min-height:32px; padding:0 10px; border:1px solid var(--border); border-radius:7px; background:var(--surface-2); color:var(--text); font-size:.65rem; font-weight:600; cursor:pointer; }
+.meme-card-actions a { border-color:#4e43df; background:#4e43df; color:#fff; }
+.meme-card-actions button:hover { border-color:var(--link); color:var(--link); }
+.meme-card-actions a:hover { filter:brightness(1.1); }
+.meme-card-actions svg { width:13px; height:13px; }
+.status-empty { padding:45px 16px; color:var(--muted); text-align:center; font-size:.85rem; }
+@media(max-width:900px) {
+  .status-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .status-toolbar { grid-template-columns:1fr auto; }
+  .status-toolbar-heading { grid-column:1/-1; }
+}
+@media(max-width:640px) {
+  .status-hero-inner { min-height:0; align-items:flex-start; flex-direction:column; gap:22px; padding-block:25px; }
+  .status-hero-icon { width:54px; height:54px; border-radius:16px; }
+  .status-quote { align-self:flex-end; max-width:240px; font-size:.78rem; }
+  .status-library { padding:13px; margin-top:14px; }
+  .status-toolbar { grid-template-columns:1fr; gap:12px; }
+  .status-toolbar-heading { grid-column:auto; }
+  .status-create-btn { width:100%; }
+  .status-grid { grid-template-columns:1fr; gap:13px; }
+  .meme-card-preview { min-height:185px; }
+}
+
+
+/* Biblioteca de poemas e cartões exportáveis */
+.poems-library{padding-top:2.5rem;padding-bottom:5rem}
+.poems-toolbar{display:flex;align-items:center;justify-content:space-between;gap:1.2rem;flex-wrap:wrap;margin-bottom:2rem}
+.poems-toolbar input{max-width:340px}
+.poems-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,310px),1fr));gap:1.25rem}
+.poem-library-card{display:flex;flex-direction:column;gap:.8rem;padding:1.5rem;border:1px solid var(--border-color,rgba(120,130,160,.22));border-radius:18px;background:var(--surface,rgba(255,255,255,.04));min-width:0}
+.poem-card-meta{font-size:.72rem;font-weight:700;letter-spacing:.12em;color:var(--accent,#8b8df5)}
+.poem-library-card h2{font-family:Merriweather,serif;font-size:1.15rem;line-height:1.5;margin:0}
+.poem-excerpt{white-space:pre-line;line-height:1.7;max-height:9.2em;overflow:hidden;margin:0;opacity:.86}
+.poem-library-card>small{opacity:.58}
+.poem-actions{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:auto;padding-top:.5rem}
+.poem-actions button{border:1px solid var(--border-color,rgba(120,130,160,.3));border-radius:999px;padding:.55rem .85rem;background:transparent;color:inherit;font:inherit;font-size:.82rem;cursor:pointer}
+.poem-actions button:hover{background:var(--accent,#7778df);color:white}
+.poem-actions button:disabled{opacity:.55;cursor:wait}
+.poem-export-card{position:fixed;left:-10000px;top:0;width:1080px;min-height:1400px;box-sizing:border-box;padding:100px 110px;background:linear-gradient(145deg,#101a35,#273c68);color:#fff;display:flex;flex-direction:column;justify-content:center;text-align:center;font-family:Georgia,serif}
+.poem-export-card small:first-child{font:700 24px Poppins,sans-serif;letter-spacing:8px;color:#d9c58a}
+.poem-export-card h2{font-size:54px;line-height:1.25;margin:55px 0 45px}
+.poem-export-card p{font-size:29px;line-height:1.8;white-space:pre-line;margin:0}
+.poem-export-card small:last-child{font:600 18px Poppins,sans-serif;letter-spacing:4px;margin-top:60px;color:#d9c58a}
+@media(max-width:640px){.poems-library{padding-top:1.5rem}.poem-actions button{flex:1}}
+
+
+/* Biblioteca de poemas e cartões exportáveis */
+.poems-library{padding-top:2.5rem;padding-bottom:5rem}
+.poems-toolbar{display:flex;align-items:center;justify-content:space-between;gap:1.2rem;flex-wrap:wrap;margin-bottom:2rem}
+.poems-toolbar input{max-width:340px}
+.poems-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,310px),1fr));gap:1.25rem}
+.poem-library-card{display:flex;flex-direction:column;gap:.8rem;padding:1.5rem;border:1px solid var(--border-color,rgba(120,130,160,.22));border-radius:18px;background:var(--surface,rgba(255,255,255,.04));min-width:0}
+.poem-card-meta{font-size:.72rem;font-weight:700;letter-spacing:.12em;color:var(--accent,#8b8df5)}
+.poem-library-card h2{font-family:Merriweather,serif;font-size:1.15rem;line-height:1.5;margin:0}
+.poem-excerpt{white-space:pre-line;line-height:1.7;max-height:9.2em;overflow:hidden;margin:0;opacity:.86}
+.poem-library-card>small{opacity:.58}
+.poem-actions{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:auto;padding-top:.5rem}
+.poem-actions button{border:1px solid var(--border-color,rgba(120,130,160,.3));border-radius:999px;padding:.55rem .85rem;background:transparent;color:inherit;font:inherit;font-size:.82rem;cursor:pointer}
+.poem-actions button:hover{background:var(--accent,#7778df);color:white}
+.poem-actions button:disabled{opacity:.55;cursor:wait}
+.poem-export-card{position:fixed;left:-10000px;top:0;width:1080px;min-height:1400px;box-sizing:border-box;padding:100px 110px;background:linear-gradient(145deg,#101a35,#273c68);color:#fff;display:flex;flex-direction:column;justify-content:center;text-align:center;font-family:Georgia,serif}
+.poem-export-card small:first-child{font:700 24px Poppins,sans-serif;letter-spacing:8px;color:#d9c58a}
+.poem-export-card h2{font-size:54px;line-height:1.25;margin:55px 0 45px}
+.poem-export-card p{font-size:29px;line-height:1.8;white-space:pre-line;margin:0}
+.poem-export-card small:last-child{font:600 18px Poppins,sans-serif;letter-spacing:4px;margin-top:60px;color:#d9c58a}
+@media(max-width:640px){.poems-library{padding-top:1.5rem}.poem-actions button{flex:1}}
+
+
+/* Biblioteca de poemas e cartões exportáveis */
+.poems-library{padding-top:2.5rem;padding-bottom:5rem}
+.poems-toolbar{display:flex;align-items:center;justify-content:space-between;gap:1.2rem;flex-wrap:wrap;margin-bottom:2rem}
+.poems-toolbar input{max-width:340px}
+.poems-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,310px),1fr));gap:1.25rem}
+.poem-library-card{display:flex;flex-direction:column;gap:.8rem;padding:1.5rem;border:1px solid var(--border-color,rgba(120,130,160,.22));border-radius:18px;background:var(--surface,rgba(255,255,255,.04));min-width:0}
+.poem-card-meta{font-size:.72rem;font-weight:700;letter-spacing:.12em;color:var(--accent,#8b8df5)}
+.poem-library-card h2{font-family:Merriweather,serif;font-size:1.15rem;line-height:1.5;margin:0}
+.poem-excerpt{white-space:pre-line;line-height:1.7;max-height:9.2em;overflow:hidden;margin:0;opacity:.86}
+.poem-library-card>small{opacity:.58}
+.poem-actions{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:auto;padding-top:.5rem}
+.poem-actions button{border:1px solid var(--border-color,rgba(120,130,160,.3));border-radius:999px;padding:.55rem .85rem;background:transparent;color:inherit;font:inherit;font-size:.82rem;cursor:pointer}
+.poem-actions button:hover{background:var(--accent,#7778df);color:white}
+.poem-actions button:disabled{opacity:.55;cursor:wait}
+.poem-export-card{position:fixed;left:-10000px;top:0;width:1080px;min-height:1400px;box-sizing:border-box;padding:100px 110px;background:linear-gradient(145deg,#101a35,#273c68);color:#fff;display:flex;flex-direction:column;justify-content:center;text-align:center;font-family:Georgia,serif}
+.poem-export-card small:first-child{font:700 24px Poppins,sans-serif;letter-spacing:8px;color:#d9c58a}
+.poem-export-card h2{font-size:54px;line-height:1.25;margin:55px 0 45px}
+.poem-export-card p{font-size:29px;line-height:1.8;white-space:pre-line;margin:0}
+.poem-export-card small:last-child{font:600 18px Poppins,sans-serif;letter-spacing:4px;margin-top:60px;color:#d9c58a}
+@media(max-width:640px){.poems-library{padding-top:1.5rem}.poem-actions button{flex:1}}
+
+/* ações dos cartões de poemas: iguais aos botões das outras páginas */
+.poem-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.poem-actions .poem-edit-link { display: inline-flex; align-items: center; padding: 8px 14px; border: 1px solid var(--border); border-radius: 999px; background: var(--surface-2); color: var(--text); font-size: .8rem; font-weight: 600; text-decoration: none; }
+.poem-actions .poem-read-link { background: var(--link); border-color: var(--link); color: #fff; }
+.poem-actions .poem-edit-link:hover { filter: brightness(1.08); }

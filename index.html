@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-i18n="page.home">StoryVerse — Seu universo de histórias</title>
+  <meta name="description" content="Histórias, poemas, memes, status e pensamentos para inspirar, emocionar e dar vida às tuas ideias. Descobre, personaliza e exporta no StoryVerse." data-i18n-content="meta.description">
+  <meta name="theme-color" content="#111936">
+  <link rel="icon" type="image/svg+xml" href="assets/logo/icone.svg">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="StoryVerse — Seu universo de histórias">
+  <meta property="og:description" content="Histórias, poemas, memes, status e pensamentos para inspirar, emocionar e dar vida às tuas ideias.">
+  <meta property="og:image" content="assets/images/hero.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <a class="skip-link" href="#conteudo" data-i18n="skip">Saltar para o conteúdo</a>
+
+  <!-- Símbolo WhatsApp (Lucide não inclui logótipos de marcas) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="wa" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </symbol>
+  </svg>
+
+  <script src="js/modules/layout.js" data-part="header"></script>
+
+  <main id="conteudo">
+    <div class="container">
+
+      <!-- HERO -->
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-text">
+          <h1 id="hero-title">
+            <span data-i18n="hero.welcome">Bem-vindo ao</span>
+            <span class="grad">StoryVerse</span>
+          </h1>
+          <p data-i18n="hero.sub">Histórias, poemas, memes, status e pensamentos para inspirar, emocionar e dar vida às tuas ideias.</p>
+          <form class="search search--hero" role="search" action="pages/pesquisa.html" method="get" data-search>
+            <label class="sr-only" for="q-hero" data-i18n="search.label">Pesquisar</label>
+            <input id="q-hero" name="q" type="search" autocomplete="off" placeholder="Pesquisar conteúdos..." data-i18n-placeholder="search.hero">
+            <button type="submit" aria-label="Pesquisar" data-i18n-aria-label="search.label"><i data-lucide="search"></i></button>
+          </form>
+        </div>
+        <blockquote class="hero-quote">
+          <p data-i18n="hero.quote">Grandes histórias começam com uma simples ideia.</p>
+        </blockquote>
+      </section>
+
+      <!-- CATEGORIAS -->
+      <nav class="categories" aria-labelledby="cat-title">
+        <h2 id="cat-title" class="sr-only" data-i18n="cat.title">Categorias</h2>
+        <ul>
+          <li>
+            <a class="cat-card cat--story" href="pages/historias.html">
+              <span class="cat-icon"><i data-lucide="book-open"></i></span>
+              <span class="cat-text"><strong data-i18n="nav.stories">Histórias</strong><small data-i18n="cat.stories">Vive grandes aventuras</small></span>
+            </a>
+          </li>
+          <li>
+            <a class="cat-card cat--poem" href="pages/poemas.html">
+              <span class="cat-icon"><i data-lucide="feather"></i></span>
+              <span class="cat-text"><strong data-i18n="nav.poems">Poemas</strong><small data-i18n="cat.poems">Sente cada palavra</small></span>
+            </a>
+          </li>
+          <li>
+            <a class="cat-card cat--meme" href="pages/memes.html">
+              <span class="cat-icon"><i data-lucide="smile"></i></span>
+              <span class="cat-text"><strong data-i18n="nav.memes">Memes</strong><small data-i18n="cat.memes">Rir também é criar</small></span>
+            </a>
+          </li>
+          <li>
+            <a class="cat-card cat--status" href="pages/status.html">
+              <span class="cat-icon"><i data-lucide="message-circle"></i></span>
+              <span class="cat-text"><strong data-i18n="nav.status">Status</strong><small data-i18n="cat.status">Partilha o que sentes</small></span>
+            </a>
+          </li>
+          <li>
+            <a class="cat-card cat--thought" href="pages/pensamentos.html">
+              <span class="cat-icon"><i data-lucide="lightbulb"></i></span>
+              <span class="cat-text"><strong data-i18n="nav.thoughts">Pensamentos</strong><small data-i18n="cat.thoughts">Ideias que ficam</small></span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- DESTAQUES: um de cada tipo -->
+      <section class="featured" aria-labelledby="feat-title">
+        <div class="section-head">
+          <h2 id="feat-title"><i data-lucide="star"></i><span data-i18n="featured.title">Destaques</span></h2>
+          <a class="see-all" href="pages/pesquisa.html"><span data-i18n="featured.all">Ver todos</span><i data-lucide="arrow-right"></i></a>
+        </div>
+        <ul class="cards">
+          <li>
+            <a class="card" href="pages/historias.html">
+              <div class="thumb thumb--story" aria-hidden="true"><span class="badge badge--story" data-i18n="badge.story">História</span></div>
+              <div class="card-body">
+                <h3 data-i18n="f1.title">O Último Capítulo</h3>
+                <p data-i18n="f1.desc">Uma história sobre recomeços.</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a class="card" href="pages/poemas.html">
+              <div class="thumb thumb--poem" aria-hidden="true"><span class="badge badge--poem" data-i18n="badge.poem">Poema</span></div>
+              <div class="card-body">
+                <h3 data-i18n="f2.title">Entre o Céu e a Terra</h3>
+                <p data-i18n="f2.desc">Um poema sobre sonhos.</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a class="card" href="pages/memes.html">
+              <div class="thumb thumb--meme" aria-hidden="true"><span class="badge badge--meme" data-i18n="badge.meme">Memes</span></div>
+              <div class="card-body">
+                <h3 data-i18n="f3.title">Quando a vida dá…</h3>
+                <p data-i18n="f3.desc">Porque rir também cura.</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a class="card" href="pages/status.html">
+              <div class="thumb thumb--status" aria-hidden="true"><span class="badge badge--status" data-i18n="badge.status">Status</span></div>
+              <div class="card-body">
+                <h3 data-i18n="f4.title">Pequenos momentos…</h3>
+                <p data-i18n="f4.desc">Grandes significados.</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a class="card" href="pages/pensamentos.html">
+              <div class="thumb thumb--thought" aria-hidden="true"><span class="badge badge--thought" data-i18n="badge.thought">Pensamento</span></div>
+              <div class="card-body">
+                <h3 data-i18n="f5.title">Acredita em você</h3>
+                <p data-i18n="f5.desc">O primeiro passo já é um grande.</p>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <!-- FEEDBACK -->
+      <section class="feedback-showcase" aria-labelledby="fb-title">
+        <div class="phone" aria-hidden="true">
+          <div class="phone-screen">
+            <div class="phone-status"><span>14:32</span><span class="phone-notch"></span><span class="phone-bars"></span></div>
+            <div class="wa-head">
+              <i data-lucide="arrow-left"></i>
+              <span class="wa-avatar"><svg viewBox="0 0 24 24" width="20" height="20"><use href="#wa"/></svg></span>
+              <div class="wa-name"><strong>StoryVerse</strong><small>online</small></div>
+              <i data-lucide="video"></i>
+              <i data-lucide="phone"></i>
+            </div>
+            <div class="wa-body">
+              <div class="wa-bubble">
+                <p data-i18n="phone.msg">Olá!
+Gostaria de partilhar a minha opinião sobre o StoryVerse...
+
+ou aqui pode o utilizador escrever o que quiser.</p>
+                <time>14:32 <i data-lucide="check-check"></i></time>
+              </div>
+            </div>
+            <div class="wa-input">
+              <i data-lucide="smile"></i>
+              <span data-i18n="phone.input">Mensagem</span>
+              <i data-lucide="paperclip"></i>
+              <span class="wa-mic"><i data-lucide="mic"></i></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="feedback-panel feedback-panel--inline">
+          <div class="fb-head">
+            <span class="wa-circle"><svg viewBox="0 0 24 24" width="22" height="22"><use href="#wa"/></svg></span>
+            <h2 id="fb-title" data-i18n="feedback.title">Dá-nos a tua opinião</h2>
+          </div>
+          <p class="fb-text" data-i18n="feedback.text">A tua opinião ajuda-nos a melhorar o StoryVerse. Como preferes contribuir?</p>
+          <div class="fb-options" data-feedback-options></div>
+          <p class="fb-note" data-i18n="feedback.note">Ao clicares serás direcionado para o WhatsApp.</p>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <script src="js/modules/layout.js" data-part="footer"></script>
+
+ 
+
+  <template id="tpl-feedback-options">
+    <button type="button" class="fb-option" data-feedback="suggestion">
+      <i data-lucide="lightbulb" class="fb-ico fb-ico--gold"></i>
+      <span class="fb-opt-text"><strong data-i18n="fb.suggestion">Enviar uma sugestão</strong><small data-i18n="fb.suggestion.sub">Tens uma ideia? Adoramos ouvir-te!</small></span>
+      <i data-lucide="chevron-right" class="fb-arrow"></i>
+    </button>
+    <button type="button" class="fb-option" data-feedback="error">
+      <i data-lucide="bug" class="fb-ico fb-ico--red"></i>
+      <span class="fb-opt-text"><strong data-i18n="fb.error">Comunicar um erro</strong><small data-i18n="fb.error.sub">Encontraste algum problema?</small></span>
+      <i data-lucide="chevron-right" class="fb-arrow"></i>
+    </button>
+    <button type="button" class="fb-option" data-feedback="experience">
+      <i data-lucide="smile" class="fb-ico fb-ico--blue"></i>
+      <span class="fb-opt-text"><strong data-i18n="fb.experience">Partilhar a tua experiência</strong><small data-i18n="fb.experience.sub">Diz-nos o que achaste do site.</small></span>
+      <i data-lucide="chevron-right" class="fb-arrow"></i>
+    </button>
+  </template>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+  <script src="js/data/config.js" defer></script>
+  <script src="js/data/languages.js" defer></script>
+  <script src="js/modules/language.js" defer></script>
+  <script src="js/modules/navigation.js" defer></script>
+  <script src="js/modules/search.js" defer></script>
+  <script src="js/modules/feedback.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>

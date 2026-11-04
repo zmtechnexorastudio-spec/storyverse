@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="A abrir o editor do StoryVerse.">
+<title>A abrir o editor — StoryVerse</title>
+<!-- Página antiga: Status e Pensamentos usam agora o mesmo editor dos Memes (editor-meme.html). -->
+<script>
+  (function(){
+    var q=new URLSearchParams(location.search);
+    var target=q.get('category')==='thoughts'||/^thought/.test(q.get('template')||'')?'thoughts':'status';
+    if(!q.get('category'))q.set('category',target);
+    location.replace('editor-meme.html?'+q.toString());
+  })();
+</script>
+<noscript><meta http-equiv="refresh" content="0;url=criar.html"></noscript>
+</head>
+<body><p><a href="criar.html">Continuar</a></p></body>
+</html>

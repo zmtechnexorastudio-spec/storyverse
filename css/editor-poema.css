@@ -1,0 +1,101 @@
+/* Editor de poemas — usa o mesmo motor do editor de memes (fundos, ícones, exportação)
+   e acrescenta o texto estruturado: título, subtítulo, estrofes, versos e autor. */
+
+/* ---------- Controlos ---------- */
+.poem-group .field-label, .poem-sublabel { display: block; margin: 12px 0 6px; font-size: .78rem; font-weight: 600; color: var(--muted); }
+.poem-input { width: 100%; padding: 10px 12px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface); color: var(--text); font: inherit; font-size: .88rem; }
+.poem-input:focus, .poem-verse-row input:focus, .poem-paste textarea:focus { outline: 2px solid var(--link); outline-offset: 1px; }
+
+.poem-stanzas { display: grid; gap: 12px; margin-bottom: 12px; }
+.poem-stanza-card { padding: 12px; border: 1px solid var(--border); border-radius: 14px; background: var(--surface-2); }
+.poem-stanza-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 8px; }
+.poem-stanza-head strong { font-size: .8rem; }
+.poem-tools { display: inline-flex; gap: 4px; }
+.poem-icon-btn { display: inline-grid; place-items: center; width: 30px; height: 30px; padding: 0; border: 1px solid var(--border); border-radius: 8px; background: var(--surface); color: var(--text); cursor: pointer; }
+.poem-icon-btn:hover:not(:disabled) { border-color: var(--link); color: var(--link); }
+.poem-icon-btn:disabled { opacity: .35; cursor: default; }
+.poem-icon-btn.is-danger:hover:not(:disabled) { border-color: #c0392b; color: #c0392b; }
+.poem-icon-btn [data-lucide], .poem-icon-btn svg { width: 15px; height: 15px; }
+.poem-verse-row { display: flex; align-items: center; gap: 6px; margin-top: 6px; }
+.poem-verse-row input { flex: 1 1 auto; min-width: 0; padding: 8px 10px; border: 1px solid var(--border); border-radius: 9px; background: var(--surface); color: var(--text); font: inherit; font-size: .86rem; }
+.poem-verse-no { flex: 0 0 18px; text-align: right; font-size: .68rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.poem-btn { display: inline-flex; align-items: center; gap: 7px; padding: 8px 13px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface); color: var(--text); font-size: .78rem; font-weight: 600; cursor: pointer; }
+.poem-btn:hover { border-color: var(--link); color: var(--link); }
+.poem-btn-main { border-color: var(--purple); background: var(--purple); color: #fff; }
+.poem-btn-main:hover { color: #fff; filter: brightness(1.08); }
+.poem-btn [data-lucide], .poem-btn svg { width: 15px; height: 15px; }
+.poem-add-verse { margin-top: 8px; }
+.poem-paste { margin-top: 12px; font-size: .8rem; }
+.poem-paste summary { cursor: pointer; font-weight: 600; color: var(--link); }
+.poem-paste textarea { width: 100%; margin: 8px 0; padding: 10px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface); color: var(--text); font: inherit; font-size: .84rem; }
+
+.poem-fmt { display: flex; gap: 8px; margin-bottom: 6px; }
+.poem-fmt-btn { display: inline-grid; place-items: center; width: 40px; height: 38px; padding: 0; border: 1px solid var(--border); border-radius: 10px; background: var(--surface); color: var(--text); cursor: pointer; }
+.poem-fmt-btn[aria-pressed="true"] { border-color: var(--purple); background: var(--purple); color: #fff; }
+.poem-range { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 4px 10px; margin-top: 12px; }
+.poem-range label { grid-column: 1 / -1; font-size: .78rem; font-weight: 600; color: var(--muted); }
+.poem-range input[type="range"] { accent-color: var(--purple); min-width: 0; }
+.poem-range output { min-width: 34px; text-align: right; font-size: .76rem; font-variant-numeric: tabular-nums; }
+.poem-ratio { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.poem-ratio-btn { padding: 9px 8px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface); color: var(--text); font-size: .76rem; font-weight: 600; cursor: pointer; }
+.poem-ratio-btn.is-selected { border-color: var(--purple); background: var(--purple); color: #fff; }
+
+.poem-fit { margin: 12px 0 0; padding: 10px 12px; border: 1px solid #e0a43a; border-radius: 10px; background: rgba(233, 187, 77, .16); font-size: .78rem; }
+.poem-export-actions { flex-wrap: wrap; }
+
+/* ---------- Pré-visualização ---------- */
+.meme-canvas.poem-canvas.ratio-916 { aspect-ratio: 9 / 16; }
+.poem-canvas { --poem-size: 16px; --poem-lh: 1.7; --poem-gap: 1.2; }
+.poem-sheet { flex: 1 1 auto; min-height: 0; overflow: hidden; display: flex; flex-direction: column; margin: 4% 0; }
+.poem-flow { margin-block: auto; font-size: var(--poem-size); line-height: var(--poem-lh); text-align: center; word-break: break-word; }
+.poem-canvas.align-left .poem-flow { text-align: left; }
+.poem-canvas.align-center .poem-flow { text-align: center; }
+.poem-canvas.align-right .poem-flow { text-align: right; }
+.poem-canvas.font-merriweather .poem-flow { font-family: 'Merriweather', Georgia, serif; }
+.poem-canvas.font-poppins .poem-flow { font-family: 'Poppins', system-ui, sans-serif; }
+.poem-canvas.font-system .poem-flow { font-family: Georgia, 'Times New Roman', serif; }
+
+.poem-title { margin: 0; font-size: 1.55em; line-height: 1.2; font-weight: 700; letter-spacing: -.01em; }
+.poem-subtitle { margin: .5em 0 0; font-size: .82em; font-style: italic; opacity: .8; }
+.poem-orn { margin: 1em 0; opacity: .75; line-height: 0; }
+.poem-orn svg { display: inline-block; height: 1em; width: auto; max-width: 60%; overflow: visible; }
+.poem-canvas.align-left .poem-orn svg, .poem-canvas.align-right .poem-orn svg { display: block; }
+.poem-canvas.align-right .poem-orn svg { margin-left: auto; }
+.poem-stanza { margin: 0 0 calc(var(--poem-gap) * 1em); }
+.poem-stanza:last-child { margin-bottom: 0; }
+.poem-verse { display: block; }
+.poem-flow.fmt-bold .poem-verse { font-weight: 700; }
+.poem-flow.fmt-italic .poem-verse { font-style: italic; }
+.poem-flow.fmt-underline .poem-verse { text-decoration: underline; text-underline-offset: .18em; }
+.poem-author { margin: 1.4em 0 0; font-size: .85em; font-style: italic; opacity: .85; }
+.poem-pageno { display: block; margin-top: 1em; font-size: .6em; letter-spacing: .12em; opacity: .55; }
+.poem-placeholder { opacity: .5; font-style: italic; }
+
+/* ---------- Os 4 modelos ---------- */
+/* 01 · Delicado: leve, centrado */
+.template-poem-template-01 .poem-flow { font-weight: 400; }
+.template-poem-template-01 .poem-title { font-weight: 700; }
+/* 02 · Vertical: traço dourado à esquerda */
+.template-poem-template-02 .poem-flow { padding-left: 5%; border-left: 4px solid var(--gold, #d9a62e); }
+.template-poem-template-02 .poem-title { font-size: 1.25em; text-transform: uppercase; letter-spacing: .08em; }
+/* 03 · Editorial: título entre filetes */
+.template-poem-template-03 .poem-title { padding: .55em 0; border-top: 2px solid currentColor; border-bottom: 2px solid currentColor; font-size: 1.7em; letter-spacing: -.02em; }
+.template-poem-template-03 .poem-subtitle { text-transform: uppercase; font-style: normal; letter-spacing: .12em; font-size: .62em; }
+/* 04 · Romântico: cartão suave, itálico */
+.template-poem-template-04 .poem-flow { padding: 6% 7%; border-radius: 22px; background: rgba(255, 255, 255, .42); box-shadow: 0 8px 24px rgba(0, 0, 0, .08); }
+.template-poem-template-04 .poem-title { font-style: italic; }
+.template-poem-template-04 .poem-verse { font-style: italic; }
+.template-poem-template-04.has-preset-background.tone-dark .poem-flow { background: rgba(10, 18, 36, .38); }
+
+.poem-canvas.tone-dark .poem-flow { text-shadow: 0 2px 16px rgba(0, 0, 0, .5); }
+.poem-canvas.is-empty .poem-flow { opacity: 1; }
+
+.poem-pager { display: flex; align-items: center; justify-content: center; gap: 14px; margin: 10px 0 0; }
+.poem-pager[hidden] { display: none; }
+.poem-pager .poem-btn { min-width: 44px; padding: 8px 14px; font-size: 1.1rem; line-height: 1; }
+.poem-pager-label { font-weight: 600; font-size: .9rem; }
+
+/* telemóveis: nada pode alargar a página */
+.poem-group, .poem-stanzas, .poem-stanza-card, .poem-verse-row { min-width: 0; max-width: 100%; }
+.poem-verse-row input, .poem-input { min-width: 0; max-width: 100%; box-sizing: border-box; }
+.poem-stanza-head { flex-wrap: wrap; gap: 8px; }

@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Escreve, personaliza e exporta o teu poema no StoryVerse." data-i18n-content="desc.editorPoem">
+  <title data-i18n="page.editorPoem">Editor de poemas — StoryVerse</title>
+  <script>
+    (function(){var q=new URLSearchParams(location.search);if(!q.get('template')){var p=new URLSearchParams();p.set('category','poems');['lang','theme'].forEach(function(k){var v=q.get(k);if(v)p.set(k,v);});location.replace('modelos.html?'+p.toString());}})();
+  </script>
+  <link rel="icon" href="../assets/logo/icone.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/editor-visual.css">
+  <link rel="stylesheet" href="../css/editor-poema.css">
+</head>
+<body data-own-export="true">
+  <a class="skip-link" href="#editor-main" data-i18n="skip">Saltar para o conteúdo</a>
+  <script src="../js/modules/layout.js" data-part="header"></script>
+
+  <main id="editor-main" class="container visual-editor-page">
+    <div class="editor-intro">
+      <p class="editor-eyebrow"><span class="editor-dot"></span><span data-i18n="editor.eyebrow">ESTÚDIO DE CRIAÇÃO · TEMPLATE 01</span></p>
+      <h1 data-i18n="editor.title">Meme clássico</h1>
+      <p data-i18n="editor.subtitle">Uma composição tipográfica simples, pronta para personalizares e partilhares.</p>
+    </div>
+
+    <div class="editor-layout">
+      <section class="editor-controls" aria-labelledby="controls-title">
+        <div class="panel-heading"><div><span class="panel-kicker" data-i18n="editor.step">PERSONALIZAÇÃO</span><h2 id="controls-title" data-i18n="editor.controls">O teu meme</h2></div><span class="template-number">01</span></div>
+        <div class="template-picker field-grid">
+          <div><label class="field-label" for="template-choice" data-i18n="editor.template">Template visual</label><select id="template-choice"><option value="meme-classico-01" data-number="01" data-visual-name-pt="Meme clássico" data-visual-name-en="Classic meme">01 · Meme clássico</option><option value="meme-editorial-02" data-number="02" data-visual-name-pt="Editorial" data-visual-name-en="Editorial">02 · Editorial</option><option value="meme-bubble-03" data-number="03" data-visual-name-pt="Balão" data-visual-name-en="Speech bubble">03 · Balão</option><option value="meme-bold-04" data-number="04" data-visual-name-pt="Impacto" data-visual-name-en="Bold impact">04 · Impacto</option><option value="meme-corner-05" data-number="05" data-visual-name-pt="Cantos" data-visual-name-en="Corner frame">05 · Cantos</option><option value="meme-split-06" data-number="06" data-visual-name-pt="Duas partes" data-visual-name-en="Split layout">06 · Duas partes</option><option value="meme-quote-07" data-number="07" data-visual-name-pt="Citação" data-visual-name-en="Quote card">07 · Citação</option><option value="meme-sticker-08" data-number="08" data-visual-name-pt="Autocolante" data-visual-name-en="Sticker style">08 · Autocolante</option></select></div>
+          <div><label class="field-label" for="meme-font" data-i18n="editor.font">Tipografia</label><select id="meme-font"><option value="poppins">Poppins</option><option value="merriweather" selected>Merriweather</option><option value="system">Sistema</option></select></div>
+        </div>
+        <textarea id="meme-text" hidden aria-hidden="true" tabindex="-1" maxlength="20000"></textarea>
+
+        <fieldset class="control-group poem-group">
+          <legend data-i18n="poem.literary">Elementos literários</legend>
+          <label class="field-label" for="poem-title-in" data-i18n="poem.title">Título</label>
+          <input type="text" id="poem-title-in" class="poem-input" maxlength="120" placeholder="Título do poema" data-i18n-placeholder="poem.titlePh">
+          <label class="field-label" for="poem-subtitle-in" data-i18n="poem.subtitle">Subtítulo ou dedicatória</label>
+          <input type="text" id="poem-subtitle-in" class="poem-input" maxlength="140" placeholder="Ex.: Para quem me ensinou a esperar" data-i18n-placeholder="poem.subtitlePh">
+          <label class="field-label" for="poem-author-in" data-i18n="poem.author">Autor</label>
+          <input type="text" id="poem-author-in" class="poem-input" maxlength="80" placeholder="O teu nome" data-i18n-placeholder="poem.authorPh">
+          <label class="field-label" for="poem-ornament" data-i18n="poem.ornament">Ornamento</label>
+          <select id="poem-ornament" class="poem-input">
+            <option value="line" data-i18n="poem.orn.line">Linha</option>
+            <option value="stars" data-i18n="poem.orn.stars">Estrelas</option>
+            <option value="flower" data-i18n="poem.orn.flower">Flor</option>
+            <option value="heart" data-i18n="poem.orn.heart">Coração</option>
+            <option value="none" data-i18n="poem.orn.none">Nenhum</option>
+          </select>
+        </fieldset>
+
+        <fieldset class="control-group poem-group">
+          <legend data-i18n="poem.verses">Versos e estrofes</legend>
+          <div id="poem-stanzas" class="poem-stanzas"></div>
+          <button type="button" id="poem-add-stanza" class="poem-btn poem-btn-main"><i data-lucide="plus"></i><span data-i18n="poem.addStanza">Adicionar estrofe</span></button>
+          <details class="poem-paste">
+            <summary data-i18n="poem.paste">Colar um poema inteiro</summary>
+            <textarea id="poem-paste-text" rows="6" maxlength="12000" placeholder="Cola aqui o poema. Uma linha em branco separa as estrofes." data-i18n-placeholder="poem.pastePh"></textarea>
+            <button type="button" id="poem-paste-use" class="poem-btn"><i data-lucide="clipboard-check"></i><span data-i18n="poem.pasteUse">Usar este texto</span></button>
+          </details>
+        </fieldset>
+
+        <fieldset class="control-group poem-group">
+          <legend data-i18n="poem.format">Formatação e apresentação</legend>
+          <div class="poem-fmt" role="group" aria-label="Formatação">
+            <button type="button" class="poem-fmt-btn" id="fmt-bold" aria-pressed="false" title="Negrito" data-i18n-title="poem.bold"><i data-lucide="bold"></i></button>
+            <button type="button" class="poem-fmt-btn" id="fmt-italic" aria-pressed="false" title="Itálico" data-i18n-title="poem.italic"><i data-lucide="italic"></i></button>
+            <button type="button" class="poem-fmt-btn" id="fmt-underline" aria-pressed="false" title="Sublinhado" data-i18n-title="poem.underline"><i data-lucide="underline"></i></button>
+          </div>
+          <div class="poem-range"><label for="poem-size" data-i18n="poem.size">Tamanho dos versos</label><input type="range" id="poem-size" min="11" max="30" step="1" value="16"><output id="poem-size-out" for="poem-size">16</output></div>
+          <div class="poem-range"><label for="poem-lh" data-i18n="poem.lineHeight">Espaço entre versos</label><input type="range" id="poem-lh" min="1.1" max="2.4" step="0.05" value="1.7"><output id="poem-lh-out" for="poem-lh">1.7</output></div>
+          <div class="poem-range"><label for="poem-gap" data-i18n="poem.stanzaGap">Espaço entre estrofes</label><input type="range" id="poem-gap" min="0.4" max="3" step="0.1" value="1.2"><output id="poem-gap-out" for="poem-gap">1.2</output></div>
+          <span class="poem-sublabel" data-i18n="poem.ratio">Formato da imagem</span>
+          <div class="poem-ratio" role="group" aria-label="Formato">
+            <button type="button" class="poem-ratio-btn is-selected" data-ratio="45" aria-pressed="true" data-i18n="poem.ratio45">4:5 · 1080 × 1350</button>
+            <button type="button" class="poem-ratio-btn" data-ratio="916" aria-pressed="false" data-i18n="poem.ratio916">9:16 · 1080 × 1920</button>
+          </div>
+        </fieldset>
+
+        <fieldset class="control-group">
+          <legend data-i18n="editor.solidColors">Cores sólidas · 16 opções</legend>
+          <div class="swatch-grid" id="solid-colors">
+            <button type="button" class="swatch is-selected" data-bg-color="#F8F3E9" aria-label="Creme" data-i18n-aria-label="color.cream" title="Creme" data-i18n-title="color.cream" data-default="true" aria-pressed="true"><span style="--swatch:#F8F3E9"></span></button>
+            <button type="button" class="swatch" data-bg-color="#DED6FF" aria-label="Lavanda" data-i18n-aria-label="color.lavender" title="Lavanda" data-i18n-title="color.lavender" aria-pressed="false"><span style="--swatch:#DED6FF"></span></button>
+            <button type="button" class="swatch" data-bg-color="#111936" aria-label="Azul-noite" data-i18n-aria-label="color.navy" title="Azul-noite" data-i18n-title="color.navy" aria-pressed="false"><span style="--swatch:#111936"></span></button>
+            <button type="button" class="swatch" data-bg-color="#E9BB4D" aria-label="Dourado" data-i18n-aria-label="color.gold" title="Dourado" data-i18n-title="color.gold" aria-pressed="false"><span style="--swatch:#E9BB4D"></span></button>
+            <button type="button" class="swatch" data-bg-color="#FFFFFF" aria-label="Branco" data-i18n-aria-label="color.white" title="Branco" data-i18n-title="color.white" aria-pressed="false"><span style="--swatch:#FFFFFF"></span></button>
+            <button type="button" class="swatch" data-bg-color="#F4C7D9" aria-label="Rosa" data-i18n-aria-label="color.pink" title="Rosa" data-i18n-title="color.pink" aria-pressed="false"><span style="--swatch:#F4C7D9"></span></button>
+            <button type="button" class="swatch" data-bg-color="#F7D7B5" aria-label="Pêssego" data-i18n-aria-label="color.peach" title="Pêssego" data-i18n-title="color.peach" aria-pressed="false"><span style="--swatch:#F7D7B5"></span></button>
+            <button type="button" class="swatch" data-bg-color="#F6E58D" aria-label="Amarelo suave" data-i18n-aria-label="color.softYellow" title="Amarelo suave" data-i18n-title="color.softYellow" aria-pressed="false"><span style="--swatch:#F6E58D"></span></button>
+            <button type="button" class="swatch" data-bg-color="#CDECCF" aria-label="Verde menta" data-i18n-aria-label="color.mint" title="Verde menta" data-i18n-title="color.mint" aria-pressed="false"><span style="--swatch:#CDECCF"></span></button>
+            <button type="button" class="swatch" data-bg-color="#A8DADC" aria-label="Azul água" data-i18n-aria-label="color.aqua" title="Azul água" data-i18n-title="color.aqua" aria-pressed="false"><span style="--swatch:#A8DADC"></span></button>
+            <button type="button" class="swatch" data-bg-color="#BFD7FF" aria-label="Azul claro" data-i18n-aria-label="color.lightBlue" title="Azul claro" data-i18n-title="color.lightBlue" aria-pressed="false"><span style="--swatch:#BFD7FF"></span></button>
+            <button type="button" class="swatch" data-bg-color="#C7CEEA" aria-label="Azul lavanda" data-i18n-aria-label="color.lavenderBlue" title="Azul lavanda" data-i18n-title="color.lavenderBlue" aria-pressed="false"><span style="--swatch:#C7CEEA"></span></button>
+            <button type="button" class="swatch" data-bg-color="#CDB4DB" aria-label="Lilás" data-i18n-aria-label="color.lilac" title="Lilás" data-i18n-title="color.lilac" aria-pressed="false"><span style="--swatch:#CDB4DB"></span></button>
+            <button type="button" class="swatch" data-bg-color="#FFADAD" aria-label="Coral" data-i18n-aria-label="color.coral" title="Coral" data-i18n-title="color.coral" aria-pressed="false"><span style="--swatch:#FFADAD"></span></button>
+            <button type="button" class="swatch" data-bg-color="#D8C3A5" aria-label="Areia" data-i18n-aria-label="color.sand" title="Areia" data-i18n-title="color.sand" aria-pressed="false"><span style="--swatch:#D8C3A5"></span></button>
+            <button type="button" class="swatch" data-bg-color="#222222" aria-label="Carvão" data-i18n-aria-label="color.charcoal" title="Carvão" data-i18n-title="color.charcoal" aria-pressed="false"><span style="--swatch:#222222"></span></button>
+          </div>
+        </fieldset>
+
+        <fieldset class="control-group">
+          <legend data-i18n="editor.gradients">Gradientes</legend>
+          <div class="swatch-grid gradient-grid" id="gradient-colors">
+            <button type="button" class="swatch gradient-swatch" data-bg-gradient="linear-gradient(135deg, #DED6FF, #F4C7D9)" aria-label="Lavanda e rosa" data-i18n-aria-label="color.gradientLavenderPink" title="Lavanda e rosa" data-i18n-title="color.gradientLavenderPink" aria-pressed="false"><span style="--swatch:linear-gradient(135deg,#DED6FF,#F4C7D9)"></span></button>
+            <button type="button" class="swatch gradient-swatch" data-bg-gradient="linear-gradient(135deg, #111936, #6C3FC5)" aria-label="Azul-noite e violeta" data-i18n-aria-label="color.gradientNightViolet" title="Azul-noite e violeta" data-i18n-title="color.gradientNightViolet" aria-pressed="false"><span style="--swatch:linear-gradient(135deg,#111936,#6C3FC5)"></span></button>
+            <button type="button" class="swatch gradient-swatch" data-bg-gradient="linear-gradient(135deg, #F6E58D, #F7D7B5)" aria-label="Amarelo e pêssego" data-i18n-aria-label="color.gradientYellowPeach" title="Amarelo e pêssego" data-i18n-title="color.gradientYellowPeach" aria-pressed="false"><span style="--swatch:linear-gradient(135deg,#F6E58D,#F7D7B5)"></span></button>
+            <button type="button" class="swatch gradient-swatch" data-bg-gradient="linear-gradient(135deg, #A8DADC, #BFD7FF)" aria-label="Água e azul" data-i18n-aria-label="color.gradientAquaBlue" title="Água e azul" data-i18n-title="color.gradientAquaBlue" aria-pressed="false"><span style="--swatch:linear-gradient(135deg,#A8DADC,#BFD7FF)"></span></button>
+            <button type="button" class="swatch gradient-swatch" data-bg-gradient="linear-gradient(135deg, #CDECCF, #A8DADC)" aria-label="Menta e água" data-i18n-aria-label="color.gradientMintAqua" title="Menta e água" data-i18n-title="color.gradientMintAqua" aria-pressed="false"><span style="--swatch:linear-gradient(135deg,#CDECCF,#A8DADC)"></span></button>
+            <button type="button" class="swatch gradient-swatch" data-bg-gradient="linear-gradient(135deg, #FFADAD, #E9BB4D)" aria-label="Coral e dourado" data-i18n-aria-label="color.gradientCoralGold" title="Coral e dourado" data-i18n-title="color.gradientCoralGold" aria-pressed="false"><span style="--swatch:linear-gradient(135deg,#FFADAD,#E9BB4D)"></span></button>
+            <button type="button" class="swatch gradient-swatch" data-bg-gradient="linear-gradient(135deg, #CDB4DB, #BFD7FF)" aria-label="Lilás e azul" data-i18n-aria-label="color.gradientLilacBlue" title="Lilás e azul" data-i18n-title="color.gradientLilacBlue" aria-pressed="false"><span style="--swatch:linear-gradient(135deg,#CDB4DB,#BFD7FF)"></span></button>
+            <button type="button" class="swatch gradient-swatch" data-bg-gradient="linear-gradient(135deg, #222222, #555555)" aria-label="Carvão" data-i18n-aria-label="color.gradientCharcoal" title="Carvão" data-i18n-title="color.gradientCharcoal" aria-pressed="false"><span style="--swatch:linear-gradient(135deg,#222222,#555555)"></span></button>
+          </div>
+        </fieldset>
+
+        <fieldset class="control-group visual-library-group">
+          <legend data-i18n="editor.presetBackgrounds">Imagens de fundo predefinidas · 30 opções</legend>
+          <div id="preset-backgrounds" class="visual-thumb-grid" aria-label="Fundos predefinidos"></div>
+        </fieldset>
+        <fieldset class="control-group visual-library-group">
+          <legend data-i18n="editor.seasonalBackgrounds">Fundos temáticos</legend>
+          <div class="seasonal-tabs"><button type="button" class="mini-tab is-selected" data-season="christmas" data-i18n="editor.christmas">Natal · 6</button><button type="button" class="mini-tab" data-season="newyear" data-i18n="editor.newyear">Ano Novo · 6</button></div>
+          <div id="seasonal-backgrounds" class="visual-thumb-grid"></div>
+        </fieldset>
+        <fieldset class="control-group visual-library-group">
+          <legend data-i18n="editor.textures">Texturas</legend>
+          <div id="texture-options" class="visual-option-grid"></div>
+        </fieldset>
+        <fieldset class="control-group visual-library-group">
+          <legend data-i18n="editor.decorations">Formas decorativas</legend>
+          <div id="decoration-options" class="visual-option-grid"></div>
+        </fieldset>
+        <p class="control-help art-move-help" data-i18n="editor.artMoveHelp">Escolhe um ícone ou uma ilustração e arrasta-o na pré-visualização. Seleciona um elemento e prime Delete para o remover.</p>
+        <fieldset class="control-group visual-library-group">
+          <legend data-i18n="editor.icons">Ícones · 24 opções</legend>
+          <div id="icon-options" class="visual-option-grid icon-option-grid"></div>
+        </fieldset>
+        <fieldset class="control-group visual-library-group">
+          <legend data-i18n="editor.illustrations">Ilustrações · 12 opções</legend>
+          <div id="illustration-options" class="visual-thumb-grid illustration-grid"></div>
+        </fieldset>
+
+        <div class="image-background-control">
+          <label class="field-label" for="background-image" data-i18n="editor.imageBackground">Imagem de fundo</label>
+          <div class="file-pick"><input type="file" id="background-image" accept="image/*" class="file-native"><label for="background-image" class="file-btn"><i data-lucide="image-plus"></i><span data-i18n="editor.chooseImage">Escolher imagem</span></label><span class="file-name" id="background-file-name" data-i18n="editor.noFile">Nenhum ficheiro escolhido</span></div>
+          <button type="button" class="text-button" id="remove-background-image" data-i18n="editor.removeImage" hidden>Remover imagem</button>
+          <p class="control-help" data-i18n="editor.imageHelp">Escolhe uma imagem do teu dispositivo. A imagem não é enviada nem guardada pelo StoryVerse.</p>
+        </div>
+
+        <label class="check-control" for="show-meme-label"><input type="checkbox" id="show-meme-label" checked><span data-i18n="editor.showMemeLabel">Mostrar a identificação “MEME 01” na imagem</span></label>
+
+        <fieldset class="control-group alignment-group">
+          <legend data-i18n="editor.alignment">Alinhamento</legend>
+          <div class="align-options">
+            <button type="button" class="align-btn is-selected" data-align="left" aria-label="Alinhar à esquerda" aria-pressed="true"><i data-lucide="align-left"></i></button>
+            <button type="button" class="align-btn" data-align="center" aria-label="Centrar" aria-pressed="false"><i data-lucide="align-center"></i></button>
+            <button type="button" class="align-btn" data-align="right" aria-label="Alinhar à direita" aria-pressed="false"><i data-lucide="align-right"></i></button>
+          </div>
+        </fieldset>
+
+        <p class="editor-warning"><i data-lucide="info"></i><span data-i18n="editor.warning">O teu trabalho não é guardado automaticamente. Exporta o conteúdo para não o perderes.</span></p>
+        <p id="poem-fit" class="poem-fit" role="status" hidden></p>
+        <div class="export-actions poem-export-actions">
+          <button type="button" class="btn-export btn-export-primary" id="export-png"><i data-lucide="image-down"></i><span data-i18n="editor.export.png">Exportar PNG</span></button>
+          <button type="button" class="btn-export btn-export-secondary" id="export-jpg"><i data-lucide="file-image"></i><span data-i18n="editor.export.jpg">Exportar JPG</span></button>
+          <button type="button" class="btn-export btn-export-secondary" id="export-pdf"><i data-lucide="file-text"></i><span data-i18n="poem.exportPdf">Exportar PDF</span></button>
+          <button type="button" class="btn-export btn-export-secondary" id="share-poem" hidden><i data-lucide="share-2"></i><span data-i18n="poem.share">Partilhar</span></button>
+        </div>
+        <p class="export-status" id="export-status" role="status" aria-live="polite"></p>
+        <nav id="export-next" class="export-next" hidden aria-label="Próximos passos" data-i18n-aria-label="next.title">
+          <a href="modelos.html?category=poems"><i data-lucide="palette"></i><span data-i18n="next.style">Escolher outro estilo</span></a>
+          <a href="criar.html"><i data-lucide="layout-grid"></i><span data-i18n="next.categories">Voltar às categorias</span></a>
+          <a href="../index.html"><i data-lucide="house"></i><span data-i18n="next.home">Ir para o início</span></a>
+        </nav>
+      </section>
+
+      <section class="preview-column" aria-labelledby="preview-title">
+        <div class="preview-heading"><div><span class="panel-kicker" data-i18n="editor.preview.kicker">RESULTADO</span><h2 id="preview-title" data-i18n="editor.preview">Pré-visualização</h2></div><span class="format-pill" id="format-pill">1080 × 1350 · 4:5</span></div>
+        <div class="preview-stage">
+          <article id="meme-canvas" class="meme-canvas poem-canvas template-poem-template-01 theme-cream size-medium align-center font-merriweather" aria-label="Pré-visualização do poema">
+            <div id="meme-decoration-layer" class="meme-decoration-layer" aria-hidden="true"></div>
+            <div id="meme-art-layer" class="meme-art-layer" aria-hidden="true"></div>
+            <div class="meme-topline"><span class="meme-mark"></span><span class="meme-brand">STORYVERSE <span class="meme-separator">/</span> <span id="meme-label-text">POEMA 01</span></span></div>
+            <p id="meme-preview-text" hidden></p>
+            <div id="poem-sheet" class="poem-sheet"><div id="poem-flow" class="poem-flow"></div></div>
+            <div class="meme-bottomline"><span class="meme-line"></span><span data-i18n="footer.tagline">CRIA. PARTILHA. INSPIRA.</span></div>
+          </article>
+        </div>
+        <div id="art-toolbar" class="art-toolbar">
+          <p id="art-empty" class="art-empty"><i data-lucide="mouse-pointer-click"></i><span data-i18n="art.empty">Seleciona um ícone ou uma ilustração na imagem para mudar a cor e o tamanho.</span></p>
+          <div id="art-controls" hidden>
+            <div class="art-head">
+              <strong><i data-lucide="sliders-horizontal"></i><span data-i18n="art.title">Elemento selecionado</span></strong>
+              <button type="button" id="art-remove" class="art-remove"><i data-lucide="trash-2"></i><span data-i18n="art.remove">Remover</span></button>
+            </div>
+            <div class="art-row" id="art-color-row">
+              <span class="art-label" data-i18n="art.color">Cor</span>
+              <div class="art-swatches" id="art-swatches" role="group" aria-label="Cor do ícone" data-i18n-aria-label="art.color"></div>
+              <label class="art-custom"><input type="color" id="art-color-input" value="#d9a62e"><span data-i18n="art.custom">Outra cor</span></label>
+            </div>
+            <div class="art-row">
+              <label class="art-label" for="art-size" data-i18n="art.size">Tamanho</label>
+              <input type="range" id="art-size" min="6" max="60" step="1" value="14">
+              <output id="art-size-out" for="art-size">14%</output>
+            </div>
+            <p id="art-note" class="art-note" hidden data-i18n="art.noColor">As ilustrações têm cores próprias. Aqui só podes mudar o tamanho.</p>
+          </div>
+        </div>
+        <div class="preview-foot"><span><i data-lucide="smartphone"></i><span data-i18n="editor.preview.note">Formato pensado para publicações nas redes sociais.</span></span><span><i data-lucide="check-circle-2"></i><span data-i18n="editor.preview.ready">Texto e fundo editáveis</span></span></div>
+      </section>
+    </div>
+  </main>
+
+  <script src="../js/modules/layout.js" data-part="footer"></script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js" defer></script>
+  <script src="../js/data/config.js" defer></script>
+  <script src="../js/data/languages.js" defer></script>
+  <script src="../js/modules/language.js" defer></script>
+  <script src="../js/modules/navigation.js" defer></script>
+  <script src="../js/modules/feedback.js" defer></script>
+  <script src="../js/modules/search.js" defer></script>
+  <script src="../js/main.js" defer></script>
+  <script src="../js/modules/file-pick.js" defer></script>
+  <script src="../js/data/contents.js" defer></script>
+  <script src="../js/data/templates.js" defer></script>
+  <script src="../js/modules/editor-category.js" defer></script>
+  <script src="../js/data/visual-library.js" defer></script>
+  <script src="../js/modules/visual-library-ui.js" defer></script>
+  <script src="../js/modules/preview.js" defer></script>
+  <script src="../js/data/embedded-svgs.js" defer></script>
+  <script src="../js/modules/export.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+  <script src="../js/modules/editor-poema.js" defer></script>
+</body>
+</html>

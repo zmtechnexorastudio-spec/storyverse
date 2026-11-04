@@ -1,0 +1,6 @@
+# Se o site estiver num endereco do tipo utilizador.github.io/repositorio, o Google so le o robots.txt
+# da raiz de utilizador.github.io; neste caso este ficheiro e inofensivo e o sitemap deve ser enviado no Search Console.
+User-agent: *
+Allow: /
+
+Sitemap: https://SEU-USUARIO.github.io/SEU-REPOSITORIO/sitemap.xml

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explora os status do StoryVerse, escolhe um e personaliza a tua própria versão." data-i18n-content="status.metaDescription">
+  <meta name="theme-color" content="#111936">
+  <title data-i18n="page.status">Status — StoryVerse</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/logo/icone.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/status-page.css">
+</head>
+<body>
+  <a class="skip-link" href="#status-content" data-i18n="skip">Saltar para o conteúdo</a>
+  <script src="../js/modules/layout.js" data-part="header"></script>
+
+  <main id="status-content" class="status-page">
+    <section class="status-hero">
+      <div class="container status-hero-inner">
+        <div class="status-hero-copy">
+          <div class="status-hero-icon"><i data-lucide="smile"></i></div>
+          <div>
+            <p class="status-eyebrow" data-i18n="status.eyebrow">STORYVERSE · FRASES</p>
+            <h1 data-i18n="status.title">Status</h1>
+            <p data-i18n="status.subtitle">Frases para expressar ideias e sentimentos. Escolhe um status, personaliza-o e partilha.</p>
+          </div>
+        </div>
+        <blockquote class="status-quote"><span data-i18n="status.quote">“Uma frase pode transmitir aquilo que sentimos.”</span><i></i></blockquote>
+      </div>
+    </section>
+
+    <section class="container status-library" aria-labelledby="status-list-title">
+      <div class="status-toolbar">
+        <div class="status-toolbar-heading">
+          <span class="status-section-mark"></span>
+          <div><h2 id="status-list-title" data-i18n="status.allTitle">Explora os status</h2><p data-i18n="status.allSubtitle">Escolhe um status para personalizares.</p></div>
+        </div>
+        <label class="status-search">
+          <i data-lucide="search"></i>
+          <span class="sr-only" data-i18n="status.searchLabel">Pesquisar status</span>
+          <input id="status-search" type="search" placeholder="Pesquisar status..." data-i18n-placeholder="status.searchPlaceholder">
+        </label>
+        <a class="status-create-btn" href="modelos.html?category=status"><i data-lucide="plus"></i><span data-i18n="status.create">Criar status</span></a>
+      </div>
+      <div id="status-grid" class="status-grid" aria-live="polite"></div>
+      <p id="status-empty" class="status-empty" hidden data-i18n="status.empty">Não encontrámos status com essa pesquisa.</p>
+    </section>
+  </main>
+
+  <script src="../js/modules/layout.js" data-part="footer"></script>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+  <script src="../js/data/config.js" defer></script>
+  <script src="../js/data/languages.js" defer></script>
+  <script src="../js/data/contents.js" defer></script>
+  <script src="../js/modules/language.js" defer></script>
+  <script src="../js/modules/navigation.js" defer></script>
+  <script src="../js/modules/feedback.js" defer></script>
+  <script src="../js/modules/search.js" defer></script>
+  <script src="../js/main.js" defer></script>
+  <script src="../js/modules/status-page.js" defer></script>
+</body>
+</html>

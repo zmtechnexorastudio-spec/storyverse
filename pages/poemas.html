@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explora os poemas do StoryVerse, lê e personaliza a tua própria versão." data-i18n-content="desc.poems">
+  <meta name="theme-color" content="#111936">
+  <title data-i18n="page.poems">Poemas — StoryVerse</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/logo/icone.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/status-page.css">
+</head>
+<body>
+  <a class="skip-link" href="#poems-content" data-i18n="skip">Saltar para o conteúdo</a>
+  <script src="../js/modules/layout.js" data-part="header"></script>
+
+  <main id="poems-content" class="status-page">
+    <section class="status-hero">
+      <div class="container status-hero-inner">
+        <div class="status-hero-copy">
+          <div class="status-hero-icon"><i data-lucide="smile"></i></div>
+          <div>
+            <p class="status-eyebrow" data-i18n="poems.eyebrow">STORYVERSE · POEMAS</p>
+            <h1 data-i18n="nav.poems">Poemas</h1>
+            <p data-i18n="poems.subtitle">Poemas para ler, guardar e partilhar. Escolhe um poema e exporta a tua versão.</p>
+          </div>
+        </div>
+        <blockquote class="status-quote"><span data-i18n="poems.quote">“Cada verso guarda uma parte daquilo que sentimos.”</span><i></i></blockquote>
+      </div>
+    </section>
+
+    <section class="container status-library" aria-labelledby="poems-list-title">
+      <div class="status-toolbar">
+        <div class="status-toolbar-heading">
+          <span class="status-section-mark"></span>
+          <div><h2 id="poems-list-title" data-i18n="poems.allTitle">Explora os poemas</h2><p data-i18n="poems.allSubtitle">Escolhe um poema para ler ou personalizar.</p></div>
+        </div>
+        <label class="status-search">
+          <i data-lucide="search"></i>
+          <span class="sr-only" data-i18n="poems.searchLabel">Pesquisar poemas</span>
+          <input id="poems-search" type="search" placeholder="Pesquisar poemas..." data-i18n-placeholder="poems.searchPlaceholder">
+        </label>
+        <a class="status-create-btn" href="editor-poema.html"><i data-lucide="plus"></i><span data-i18n="poems.create">Criar poema</span></a>
+      </div>
+      <div id="poems-grid" class="poems-grid" aria-live="polite"></div>
+      <p id="poems-empty" class="status-empty" hidden data-i18n="poems.empty">Não encontrámos poemas com essa pesquisa.</p>
+    </section>
+  </main>
+
+  <script src="../js/modules/layout.js" data-part="footer"></script>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+  <script src="../js/data/config.js" defer></script>
+  <script src="../js/data/languages.js" defer></script>
+  <script src="../js/data/contents.js" defer></script>
+  <script src="../js/modules/language.js" defer></script>
+  <script src="../js/modules/navigation.js" defer></script>
+  <script src="../js/modules/feedback.js" defer></script>
+  <script src="../js/modules/search.js" defer></script>
+  <script src="../js/main.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+  <script src="../js/modules/poems-page.js" defer></script>
+</body>
+</html>

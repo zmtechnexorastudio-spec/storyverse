@@ -1,0 +1,61 @@
+/* =========================================================
+   StoryVerse — responsividade (computador, tablet, telemóvel)
+   ========================================================= */
+
+/* Portátil pequeno / tablet horizontal */
+@media (max-width: 1100px) {
+  .header-inner { flex-wrap: wrap; gap: 10px 16px; padding-block: 10px; }
+  .header-tools { margin-left: auto; }
+  .menu-toggle { display: grid; }
+  .search--header { order: 3; flex: 1 1 100%; }
+
+  .main-nav {
+    display: none; position: absolute; top: 100%; left: 0; right: 0;
+    flex-direction: column; align-items: stretch; gap: 14px;
+    padding: 16px; background: var(--surface); border-bottom: 1px solid var(--border); box-shadow: var(--shadow);
+  }
+  .main-nav.is-open { display: flex; }
+  .main-nav ul { flex-direction: column; gap: 4px; }
+  .main-nav li a { display: block; padding: 10px 4px; font-size: .9rem; }
+  .main-nav li a[aria-current="page"]::after { display: none; }
+  .btn-create { justify-content: center; padding: 10px 16px; }
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .categories ul { grid-template-columns: repeat(3, 1fr); }
+  .cards { grid-template-columns: repeat(3, 1fr); }
+  .feedback-showcase { grid-template-columns: 1fr; }
+  .feedback-panel--inline { max-width: none; }
+  .footer-inner { flex-wrap: wrap; justify-content: center; text-align: center; }
+}
+
+/* Telemóvel */
+@media (max-width: 640px) {
+  .hero { grid-template-columns: 1fr; min-height: 0; padding: 28px 22px 36px; border-radius: 16px; }
+  .hero-quote { justify-self: start; max-width: 100%; transform: rotate(-3deg); margin-top: 8px; }
+  .categories ul { grid-template-columns: repeat(2, 1fr); }
+  .categories li:last-child { grid-column: 1 / -1; }
+  .cat-card { padding: 12px; gap: 10px; }
+  .cat-icon { width: 40px; height: 40px; }
+  .cards { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .cards li:last-child { grid-column: 1 / -1; }
+  .thumb { height: 110px; }
+  .phone { width: 210px; }
+  .phone-screen { height: 400px; }
+  .fab-wrap { right: 14px; bottom: 14px; }
+  .fab-label { font-size: .72rem; padding: 8px 12px; }
+  .fab-ico { width: 52px; height: 52px; }
+  .footer-links { flex-wrap: wrap; justify-content: center; gap: 14px 20px; }
+}
+
+/* Ecrãs muito pequenos */
+@media (max-width: 380px) {
+  .fab-label { display: none; }
+}
+
+/* Respeitar preferência por menos movimento */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}

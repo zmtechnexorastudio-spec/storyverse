@@ -1,0 +1,121 @@
+/* StoryVerse · Histórias (biblioteca, leitura e editor) */
+
+/* ---------- Biblioteca ---------- */
+.stories-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 22px; margin-top: 22px; }
+.story-card { display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--border); border-radius: 18px; overflow: hidden; box-shadow: 0 6px 20px rgba(17, 25, 54, .06); }
+.story-cover { position: relative; aspect-ratio: 3 / 4; background: var(--surface-2); overflow: hidden; }
+.story-cover img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.story-cover-brand { position: absolute; top: 12px; left: 14px; font: 700 .68rem/1 'Poppins', sans-serif; letter-spacing: .18em; color: #fff; text-shadow: 0 1px 4px rgba(0, 0, 0, .55); }
+.story-cover-title { position: absolute; left: 14px; right: 14px; bottom: 16px; font: 900 1.25rem/1.2 'Merriweather', serif; color: #fff; text-shadow: 0 2px 8px rgba(0, 0, 0, .65); overflow-wrap: anywhere; }
+.story-card-body { display: flex; flex-direction: column; gap: 6px; padding: 14px 16px 16px; flex: 1; }
+.story-card-body h3 { margin: 0; font-size: 1.05rem; }
+.story-author { margin: 0; font-size: .85rem; color: var(--muted, #5b6286); }
+.story-excerpt { margin: 0; font-size: .9rem; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 4; line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+.story-card-body .meme-card-actions { margin-top: auto; padding-top: 10px; display: flex; gap: 8px; flex-wrap: wrap; }
+.story-card-body .meme-card-actions a { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border-radius: 999px; border: 1px solid var(--border); text-decoration: none; font-weight: 600; font-size: .85rem; color: var(--text); background: var(--surface-2); }
+.story-card-body .meme-card-actions a:last-child { background: var(--link); border-color: var(--link); color: #fff; }
+.story-card-body .meme-card-actions a:hover { filter: brightness(1.08); }
+
+/* ---------- Leitura ---------- */
+.reader-page { padding-top: 22px; padding-bottom: 60px; }
+.reader-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+.reader-top-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.reader-back, .reader-btn { display: inline-flex; align-items: center; gap: 8px; padding: 9px 14px; border-radius: 999px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font: 600 .88rem 'Poppins', sans-serif; text-decoration: none; cursor: pointer; }
+.reader-btn-main { background: var(--link); border-color: var(--link); color: #fff; }
+.reader-back:hover, .reader-btn:hover { filter: brightness(1.06); }
+.reader-settings { display: flex; flex-wrap: wrap; gap: 18px 28px; padding: 14px 16px; margin-bottom: 16px; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; }
+.reader-settings[hidden] { display: none; }
+.reader-set { display: flex; flex-direction: column; gap: 6px; font-size: .85rem; font-weight: 600; min-width: 160px; }
+.reader-set input[type=range] { width: 100%; accent-color: var(--link); }
+.seg { display: inline-flex; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+.seg-btn { padding: 7px 12px; border: 0; background: var(--surface); color: var(--text); font: 600 .82rem 'Poppins', sans-serif; cursor: pointer; }
+.seg-btn + .seg-btn { border-left: 1px solid var(--border); }
+.seg-btn.is-selected { background: var(--link); color: #fff; }
+
+.reader { --reader-size: 18px; --reader-lh: 1.8; font-size: var(--reader-size); line-height: var(--reader-lh); padding: clamp(18px, 4vw, 48px); border-radius: 18px; border: 1px solid var(--border); overflow-wrap: anywhere; }
+.reader.font-serif { font-family: 'Merriweather', Georgia, serif; }
+.reader.font-sans { font-family: 'Poppins', system-ui, sans-serif; }
+.reader.theme-light { background: #ffffff; color: #1c2038; }
+.reader.theme-dark { background: #12152a; color: #e6e8f5; border-color: #262b4a; }
+.reader.theme-sepia { background: #f3ead4; color: #43331f; border-color: #e0d3b2; }
+.reader-head { display: flex; gap: 22px; align-items: flex-start; flex-wrap: wrap; margin-bottom: 1.6em; padding-bottom: 1.2em; border-bottom: 1px solid currentColor; border-bottom-color: color-mix(in srgb, currentColor 22%, transparent); }
+.reader-cover { width: 150px; max-width: 40%; border-radius: 10px; box-shadow: 0 8px 22px rgba(0, 0, 0, .25); }
+.reader-meta { flex: 1; min-width: 200px; }
+.reader-meta h1 { margin: 0 0 .25em; font-size: 1.9em; line-height: 1.2; }
+.reader-subtitle { margin: 0 0 .4em; font-style: italic; opacity: .85; }
+.reader-author { margin: 0 0 .6em; opacity: .75; font-size: .9em; }
+.reader-synopsis { margin: 0 0 .6em; font-style: italic; opacity: .9; }
+.reader-characters { margin: 0; font-size: .92em; opacity: .9; }
+.reader-toc { margin: 0 0 1.6em; padding: 1em 1.2em; border-radius: 12px; background: color-mix(in srgb, currentColor 7%, transparent); }
+.reader-toc ol { margin: .5em 0 0; padding-left: 1.4em; }
+.reader-toc a { color: inherit; }
+.reader-chapter { margin-top: 2em; }
+.reader-chapter h2 { margin: 0 0 .7em; font-size: 1.35em; line-height: 1.3; }
+.reader p, .reader li { margin: 0 0 1em; }
+.reader ul, .reader ol { margin: 0 0 1em; padding-left: 1.5em; }
+.reader .ta-center { text-align: center; }
+.reader .ta-right { text-align: right; }
+.reader .ta-justify { text-align: justify; }
+.reader-missing { text-align: center; opacity: .7; }
+
+/* ---------- Editor ---------- */
+.story-editor-page .st-two { display: grid; grid-template-columns: 1fr 110px; gap: 10px; }
+.st-toolbar { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-bottom: 10px; }
+.st-sep { width: 1px; height: 22px; background: var(--border); margin: 0 4px; }
+.st-chapters { display: flex; flex-direction: column; gap: 12px; margin-bottom: 12px; }
+.st-chapter-card { display: flex; flex-direction: column; gap: 8px; }
+.st-editable { min-height: 140px; max-height: 360px; overflow-y: auto; padding: 10px 12px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface); color: var(--text); font-size: .95rem; line-height: 1.6; outline: none; }
+.st-editable:focus { border-color: var(--link); box-shadow: 0 0 0 3px color-mix(in srgb, var(--link) 22%, transparent); }
+.st-editable:empty::before { content: attr(data-placeholder); opacity: .5; pointer-events: none; }
+.st-editable p, .st-editable li { margin: 0 0 .7em; }
+.st-editable ul, .st-editable ol { margin: 0 0 .7em; padding-left: 1.4em; }
+.st-editable .ta-center { text-align: center; }
+.st-editable .ta-right { text-align: right; }
+.st-editable .ta-justify { text-align: justify; }
+.cover-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(70px, 1fr)); gap: 8px; }
+.cover-opt { position: relative; aspect-ratio: 3 / 4; padding: 0; border: 2px solid var(--border); border-radius: 10px; overflow: hidden; background: var(--surface-2); cursor: pointer; color: var(--text); font: 600 .75rem 'Poppins', sans-serif; }
+.cover-opt img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.cover-opt.is-selected { border-color: var(--link); box-shadow: 0 0 0 3px color-mix(in srgb, var(--link) 25%, transparent); }
+.cover-none { display: grid; place-items: center; text-align: center; padding: 4px; }
+.st-preview-wrap { max-height: 78vh; overflow: auto; border-radius: 18px; }
+.st-preview { --reader-size: 15px; font-size: var(--reader-size); }
+.poem-sublabel { display: block; margin: 10px 0 4px; font-size: .82rem; font-weight: 600; }
+
+/* ---------- Páginas do PDF (fora do ecrã) ---------- */
+.pdf-host { position: fixed; left: -10000px; top: 0; pointer-events: none; }
+.pdf-page { position: relative; box-sizing: border-box; overflow: hidden; margin: 0 0 20px; border: 0; border-radius: 0; font-size: var(--reader-size); }
+.pdf-page.reader { padding: 72px; border-radius: 0; border: 0; }
+.pdf-body { overflow: hidden; }
+.pdf-h { margin: 0 0 .7em; font-size: 1.3em; }
+.pdf-ch { font-size: 1.6em; margin-bottom: 1em; }
+.pdf-pageno { position: absolute; bottom: 30px; left: 0; right: 0; text-align: center; font-size: 13px; opacity: .6; }
+.pdf-cover { padding: 0 !important; background: #14172b; color: #fff; }
+.pdf-cover-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.pdf-cover-band { position: absolute; left: 0; right: 0; bottom: 0; padding: 90px 72px 80px; background: linear-gradient(to top, rgba(0, 0, 0, .78), rgba(0, 0, 0, 0)); color: #fff; }
+.pdf-cover-band h1 { margin: 0 0 .3em; font-size: 46px; line-height: 1.15; overflow-wrap: anywhere; text-shadow: 0 2px 8px rgba(0, 0, 0, .5); }
+.pdf-cover-sub { margin: 0 0 .5em; font-size: 22px; font-style: italic; opacity: .92; }
+.pdf-cover-by { margin: 0; font-size: 18px; opacity: .85; }
+.pdf-cover.reader.theme-light, .pdf-cover.reader.theme-sepia { color: #fff; }
+
+@media (max-width: 560px) {
+  .stories-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; }
+  .reader-cover { max-width: 55%; }
+}
+.st-upload { margin-top: 10px; cursor: pointer; }
+.story-cover::after { content: ""; position: absolute; inset: auto 0 0 0; height: 55%; background: linear-gradient(to top, rgba(0, 0, 0, .6), transparent); pointer-events: none; }
+.story-cover-brand, .story-cover-title { z-index: 1; }
+.reader-cover { height: auto; }
+
+/* leitura de poemas */
+.reader.is-poem { max-width: 680px; margin-inline: auto; }
+.reader.is-poem .reader-head { display: block; text-align: center; }
+.reader.is-poem .poem-stanza { margin: 0 0 1.5em; text-align: center; }
+
+/* listas (o reset global do site retira os marcadores) */
+.reader ul, .st-editable ul { list-style: disc; }
+.reader ol, .st-editable ol { list-style: decimal; }
+.reader li, .st-editable li { display: list-item; }
+.reader b, .st-editable b { font-weight: 700; }
+.reader i, .st-editable i { font-style: italic; }
+.reader u, .st-editable u { text-decoration: underline; }
+.st-toolbar { position: sticky; top: 0; z-index: 3; padding: 6px 0; background: var(--surface); }

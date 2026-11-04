@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Contacta a equipa do StoryVerse: sugestões, erros ou experiências de utilização." data-i18n-content="desc.contact">
+  <meta name="theme-color" content="#111936">
+  <title data-i18n="page.contact">Contactos — StoryVerse</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/logo/icone.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/legal.css">
+</head>
+<body>
+  <a class="skip-link" href="#conteudo" data-i18n="skip">Saltar para o conteúdo</a>
+  <script src="../js/modules/layout.js" data-part="header"></script>
+
+  
+  <main id="conteudo" class="container legal-page">
+    <article class="legal-card">
+      <div class="only-pt">
+      <h1>Contactos</h1>
+      <p class="legal-lead">Queremos ouvir-te.</p>
+      <p>Podes enviar uma sugestão, comunicar um erro ou partilhar a tua experiência de utilização. O botão de feedback, no canto inferior direito de cada página, abre o WhatsApp com uma mensagem já preenchida que podes editar antes de enviar.</p>
+      <p><a class="legal-btn" data-wa href="#">Abrir o WhatsApp</a></p>
+      <p class="legal-note">Abrir o WhatsApp não significa que a mensagem foi enviada: só é enviada quando carregares em enviar na aplicação.</p>
+      </div>
+      <div class="only-en">
+      <h1>Contact</h1>
+      <p class="legal-lead">We want to hear from you.</p>
+      <p>You can send a suggestion, report a bug or share your experience. The feedback button, at the bottom right of every page, opens WhatsApp with a ready-made message you can edit before sending.</p>
+      <p><a class="legal-btn" data-wa href="#">Open WhatsApp</a></p>
+      <p class="legal-note">Opening WhatsApp does not mean the message was sent: it is only sent when you press send in the app.</p>
+      </div>
+    </article>
+  </main>
+
+  <script src="../js/modules/layout.js" data-part="footer"></script>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+  <script src="../js/data/config.js" defer></script>
+  <script src="../js/data/languages.js" defer></script>
+  <script src="../js/modules/language.js" defer></script>
+  <script src="../js/modules/navigation.js" defer></script>
+  <script src="../js/modules/feedback.js" defer></script>
+  <script src="../js/modules/search.js" defer></script>
+  <script src="../js/main.js" defer></script>
+  <script>document.addEventListener("DOMContentLoaded",function(){var n=((window.SV_CONFIG&&window.SV_CONFIG.whatsappNumber)||"").replace(/\D/g,"");document.querySelectorAll("[data-wa]").forEach(function(a){if(n){a.href="https://wa.me/"+n;a.target="_blank";a.rel="noopener";}else a.hidden=true;});});</script>
+</body>
+</html>

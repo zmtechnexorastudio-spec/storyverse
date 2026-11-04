@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explora as histórias do StoryVerse, lê e cria a tua própria versão." data-i18n-content="desc.stories">
+  <meta name="theme-color" content="#111936">
+  <title data-i18n="page.stories">Histórias — StoryVerse</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/logo/icone.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/status-page.css">
+  <link rel="stylesheet" href="../css/stories.css">
+</head>
+<body>
+  <a class="skip-link" href="#stories-content" data-i18n="skip">Saltar para o conteúdo</a>
+  <script src="../js/modules/layout.js" data-part="header"></script>
+
+  <main id="stories-content" class="status-page">
+    <section class="status-hero">
+      <div class="container status-hero-inner">
+        <div class="status-hero-copy">
+          <div class="status-hero-icon"><i data-lucide="book-open"></i></div>
+          <div>
+            <p class="status-eyebrow" data-i18n="stories.eyebrow">STORYVERSE · NARRATIVAS</p>
+            <h1 data-i18n="stories.title">Histórias</h1>
+            <p data-i18n="stories.subtitle">Viagens, mistérios e emoções em capítulos. Lê uma história, cria a tua versão ou escreve uma nova.</p>
+          </div>
+        </div>
+        <blockquote class="status-quote"><span data-i18n="stories.quote">“Toda a grande história começa com uma ideia simples.”</span><i></i></blockquote>
+      </div>
+    </section>
+
+    <section class="container status-library" aria-labelledby="stories-list-title">
+      <div class="status-toolbar">
+        <div class="status-toolbar-heading">
+          <span class="status-section-mark"></span>
+          <div><h2 id="stories-list-title" data-i18n="stories.allTitle">Explora as histórias</h2><p data-i18n="stories.allSubtitle">Escolhe uma história para ler ou personalizar.</p></div>
+        </div>
+        <label class="status-search">
+          <i data-lucide="search"></i>
+          <span class="sr-only" data-i18n="stories.searchLabel">Pesquisar histórias</span>
+          <input id="stories-search" type="search" placeholder="Pesquisar histórias..." data-i18n-placeholder="stories.searchPlaceholder">
+        </label>
+        <a class="status-create-btn" id="stories-create" href="editor-historia.html"><i data-lucide="plus"></i><span data-i18n="stories.create">Criar história</span></a>
+      </div>
+      <div id="stories-grid" class="stories-grid" aria-live="polite"></div>
+      <p id="stories-empty" class="status-empty" hidden data-i18n="stories.empty">Não encontrámos histórias com essa pesquisa.</p>
+      <p id="stories-none" class="status-empty" hidden data-i18n="stories.none">Ainda não há histórias na biblioteca. Podes escrever a tua!</p>
+    </section>
+  </main>
+
+  <script src="../js/modules/layout.js" data-part="footer"></script>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+  <script src="../js/data/config.js" defer></script>
+  <script src="../js/data/languages.js" defer></script>
+  <script src="../js/data/contents.js" defer></script>
+  <script src="../js/modules/language.js" defer></script>
+  <script src="../js/modules/navigation.js" defer></script>
+  <script src="../js/modules/feedback.js" defer></script>
+  <script src="../js/modules/search.js" defer></script>
+  <script src="../js/main.js" defer></script>
+  <script src="../js/modules/story-core.js" defer></script>
+  <script src="../js/modules/stories-page.js" defer></script>
+</body>
+</html>
