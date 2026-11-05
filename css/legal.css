@@ -12,3 +12,8 @@
 .legal-btn:hover { filter: brightness(1.08); }
 html[lang^="en"] .only-pt { display: none; }
 html:not([lang^="en"]) .only-en { display: none; }
+
+.legal-social-title { margin-top: 28px; }
+.legal-social { display: flex; flex-wrap: wrap; gap: 10px; }
+.legal-btn-alt { background: transparent; color: var(--link); border: 2px solid var(--link); padding: 9px 18px; }
+.legal-btn-alt:hover { background: var(--link); color: #fff; filter: none; }

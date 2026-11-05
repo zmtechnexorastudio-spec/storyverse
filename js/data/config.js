@@ -5,5 +5,5 @@ window.SV_CONFIG = {
   whatsappNumber: "+244955207469",
 
   // ID de medição do Google Analytics 4 (ex.: "G-XXXXXXXXXX"). Vazio = sem métricas.
-  gaMeasurementId: ""
+  gaMeasurementId: "G-KBDBSCF925"
 };

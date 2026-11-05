@@ -3,4 +3,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://SEU-USUARIO.github.io/SEU-REPOSITORIO/sitemap.xml
+Sitemap: https://zmtechnexorastudio-spec.github.io/storyverse/sitemap.xml

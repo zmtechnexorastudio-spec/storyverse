@@ -1035,8 +1035,8 @@ e abrir `http://localhost:8000`. Abrir o ficheiro `index.html` diretamente tamb�
 1. Criar um repositório no GitHub e enviar o conteúdo da pasta `StoryVerse` para a raiz do repositório.
 2. Em *Settings → Pages*, escolher o ramo principal e a pasta raiz.
 3. O endereço fica `https://UTILIZADOR.github.io/REPOSITORIO/`. Todas as ligações do projeto são relativas, por isso funcionam nesse sub-caminho.
-4. Trocar `SEU-USUARIO` e `SEU-REPOSITORIO` em `sitemap.xml` e `robots.txt` pelos valores reais. Num repositório normal o Google só lê o `robots.txt` da raiz de `utilizador.github.io`, por isso o importante é enviar o `sitemap.xml` no Google Search Console.
-5. Preencher `gaMeasurementId` em `js/data/config.js` com o ID da propriedade criada em analytics.google.com.
+4. O endereço real (`https://zmtechnexorastudio-spec.github.io/storyverse/`) já está em `sitemap.xml` e `robots.txt`. Num repositório normal o Google só lê o `robots.txt` da raiz de `utilizador.github.io`, por isso o importante é enviar o `sitemap.xml` no Google Search Console.
+5. O ID do Google Analytics (`G-KBDBSCF925`) já está em `gaMeasurementId`, em `js/data/config.js`. Depois de publicar, confirmar em Relatórios → Tempo real.
 
 **V1.5 — Vercel ou Cloudflare Pages.** A passagem para um domínio próprio fica para a V1.5. Quando acontecer, atualizar o endereço no `sitemap.xml` e no `robots.txt` (e, se o site ficar na raiz do domínio, o `robots.txt` passa a ser lido normalmente).
 
@@ -1075,3 +1075,12 @@ Verificado de forma automática sobre o projeto completo:
 - Depois de mexer em SVGs, voltar a gerar `embedded-svgs.js` (ver 22.9).
 - Entregar sempre o projeto completo, só com ficheiros `.html`, `.css` e `.js` no site.
 - Nada de gravação automática, contas, base de dados ou LocalStorage na V1.
+
+
+### 22.16. Favicon (ícone do separador)
+
+O ícone do separador existe em vários formatos para funcionar em qualquer navegador e no GitHub Pages: `assets/logo/favicon.ico` (e uma cópia `favicon.ico` na raiz), `favicon-32.png`, `favicon-192.png` e `apple-touch-icon.png` (ecrã inicial do iPhone). Todas as páginas apontam para estes ficheiros com `?v=2`; quando trocares o ícone, sobe esse número para forçar os navegadores a descarregá-lo de novo. Se o ícone antigo ainda aparecer depois de publicar, é a cache do navegador: abre o site numa janela privada ou limpa os dados do site.
+
+### 22.17. Redes sociais
+
+A página de Contactos mostra, a seguir ao botão do WhatsApp, cinco botões para as redes da Nexora: Instagram, Facebook, TikTok, X e YouTube. Os endereços estão escritos diretamente em `pages/contactos.html` (versão portuguesa e inglesa). Abrem num separador novo.
