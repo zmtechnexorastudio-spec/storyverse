@@ -1084,3 +1084,7 @@ O ícone do separador existe em vários formatos para funcionar em qualquer nave
 ### 22.17. Redes sociais
 
 A página de Contactos mostra, a seguir ao botão do WhatsApp, cinco botões para as redes da Nexora: Instagram, Facebook, TikTok, X e YouTube. Os endereços estão escritos diretamente em `pages/contactos.html` (versão portuguesa e inglesa). Abrem num separador novo.
+
+### 22.18. Links dos editores abrem a página inicial
+
+Se alguém abrir o link de um editor vindo de fora (WhatsApp, redes sociais, endereço escrito à mão), é levado para a página inicial, porque um editor aberto assim é só uma página vazia. Isto é feito por `js/modules/entry-guard.js`, incluído no início de `editor-meme.html`, `editor-poema.html`, `editor-historia.html` e `editor-conteudo.html`. O script só deixa o editor abrir quando a visita vem de outra página do próprio site, ou quando a página é recarregada, ou quando se volta atrás. O idioma e o tema do link são mantidos. Para desativar, basta retirar a linha do script dessas quatro páginas.

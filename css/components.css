@@ -41,22 +41,26 @@
   content: ""; position: absolute; inset: 52% 0 0 0; background: rgba(10, 12, 38, .72);
   clip-path: polygon(0 70%, 18% 35%, 32% 60%, 50% 15%, 68% 55%, 84% 30%, 100% 60%, 100% 100%, 0 100%);
 }
-.thumb--story { background-image: linear-gradient(180deg, #27327a 0%, #a2539c 45%, #f3965a 78%, #f6c56b 100%); }
-.thumb--poem { background-image: linear-gradient(180deg, #2c4a9b, #7b5fc2 50%, #f08a5d 85%, #f9c46f); }
-.thumb--meme { background-image: radial-gradient(circle at 50% 45%, #a97c4a 0%, #5d4128 45%, #1d140d 100%); }
+.thumb--story { background-image: url(../assets/images/indexclaro.jpg); }
+
+.thumb--poem { background-image: url(../assets/images/indexclaro.jpg); }
+
+.thumb--meme { background-image: url(../assets/images/indexclaro.jpg); }
+
 .thumb--meme::after { display: none; }
-.thumb--status { background-image: linear-gradient(180deg, #1c3f8f, #5e7cc4 40%, #f5a05c 80%, #fbd37a); }
-.thumb--thought { background-image: linear-gradient(180deg, #0f1840, #2b2a73 55%, #6C3FC5 100%); }
+.thumb--status { background-image: url(../assets/images/indexclaro.jpg); }
+
+.thumb--thought { background-image: url(../assets/images/indexclaro.jpg); }
 
 .badge {
   position: absolute; left: 10px; bottom: 10px; z-index: 1;
   padding: 3px 10px; border-radius: 6px; font-size: .68rem; font-weight: 600; color: #fff;
 }
-.badge--story { background-image: url('../assets/images/indexclaro.jpg'); }
-.badge--poem { background-image: url('../assets/images/indexclaro.jpg'); }
-.badge--meme { background-image: url('../assets/images/indexclaro.jpg'); }
-.badge--status { background-image: url('../assets/images/indexclaro.jpg'); }
-.badge--thought { background-image: url('../assets/images/indexclaro.jpg'); }
+.badge--story { background: #6C3FC5; }
+.badge--poem { background: #1fae63; }
+.badge--meme { background: #f59e0b; }
+.badge--status { background: #2f8cff; }
+.badge--thought { background: #ee3d7f; }
 
 /* ---------- Feedback: painel ---------- */
 .feedback-panel {
